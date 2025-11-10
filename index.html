@@ -1,327 +1,491 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Félix Revert – Product x AI Portfolio</title>
+  <title>Félix Revert – Portfolio Produit x IA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio Product x AI de Félix Revert : études de cas, projets personnels, talks et parcours.">
+  <meta name="description" content="Portfolio de Félix Revert : études de cas produit x IA, CV interactif, talks, formations, passions et engagements.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#hero" class="logo">Félix Revert</a>
+      <a href="#home" class="logo">Félix Revert</a>
 
-      <button class="nav-toggle" aria-label="Open navigation">
+      <button class="nav-toggle" aria-label="Ouvrir le menu">
         <span></span>
         <span></span>
       </button>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Navigation principale">
         <ul class="nav-links">
-          <li><a href="#hero" data-i18n="nav-home">Home</a></li>
-          <li><a href="#case-studies" data-i18n="nav-case-studies">Case studies</a></li>
-          <li><a href="#side-projects" data-i18n="nav-side-projects">Side projects</a></li>
-          <li><a href="#talks" data-i18n="nav-talks">Talks & teaching</a></li>
-          <li><a href="#about" data-i18n="nav-about">About</a></li>
-          <li><a href="#contact" data-i18n="nav-contact">Work with me</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#case-studies">Case Studies</a></li>
+          <li><a href="#cv">CV</a></li>
+          <li><a href="#projects">Projets</a></li>
+          <li><a href="#talks">Talks</a></li>
+          <li><a href="#articles">Articles</a></li>
+          <li><a href="#training">Training</a></li>
+          <li><a href="#chess">Chess</a></li>
+          <li><a href="#kitesurf">Kitesurf</a></li>
+          <li><a href="#environment">Environment</a></li>
         </ul>
-
-        <div class="lang-switch" role="radiogroup" aria-label="Language">
-          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
-          <button class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
-        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="hero" class="hero section">
+    <section id="home" class="section hero">
       <div class="container hero-inner">
         <div class="hero-text reveal">
-          <p class="eyebrow" data-i18n="hero-eyebrow">
-            Product & AI
+          <p class="eyebrow">Produit x Intelligence Artificielle</p>
+          <h1>Bonjour, je suis Félix Revert.</h1>
+          <p class="hero-subtitle">
+            Je construis des produits IA fiables et utiles. Mon parcours m’a conduit de Doctolib
+            (documents médicaux, migration de données sensibles) à DataRobot et Capgemini (banque,
+            service public), en passant par SmartSubs que j’ai cofondé. Je suis un builder : je code des
+            algorithmes, je conçois des UX simples, et j’aime transformer une idée ambiguë en produit concret.
           </p>
-          <h1 data-i18n="hero-title">
-            Turning complex AI problems into clear, usable products.
-          </h1>
-          <p class="hero-subtitle" data-i18n="hero-subtitle">
-            I help teams ship AI-powered products that actually work:
-            from healthcare and sports betting to education and internal tools.
+          <p>
+            Aujourd’hui je mène des initiatives Produit x IA, j’enseigne ce que j’apprends et je reste
+            hands-on pour faire les bons arbitrages entre valeur, risque et effort.
           </p>
           <div class="hero-actions">
-            <a href="#case-studies" class="btn primary" data-i18n="hero-primary-cta">
-              See case studies
-            </a>
-            <a href="#contact" class="btn ghost" data-i18n="hero-secondary-cta">
-              Work with me
-            </a>
+            <a href="#case-studies" class="btn primary">Voir les études de cas</a>
+            <a href="#cv" class="btn ghost">Explorer le CV interactif</a>
           </div>
         </div>
-        <div class="hero-meta reveal">
-          <div class="hero-card">
-            <h2 data-i18n="hero-card-title">What I do</h2>
+
+        <div class="hero-visual">
+          <figure class="portrait-wrapper reveal">
+            <img src="pictures/photo-portrait.jpg" alt="Portrait de Félix Revert" class="portrait">
+          </figure>
+          <div class="hero-card reveal">
+            <h2>What I do</h2>
             <ul>
-              <li data-i18n="hero-card-item-1">Product leadership for AI initiatives</li>
-              <li data-i18n="hero-card-item-2">Bridging data science, engineering & business</li>
-              <li data-i18n="hero-card-item-3">Hands-on experiments & fast learning loops</li>
+              <li>Discovery produit sur des use cases IA</li>
+              <li>Design d’UX sobres pour des workflows critiques</li>
+              <li>Alignement data science, tech et métier</li>
+              <li>Expérimentations rapides, mesures et itérations</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CASE STUDIES -->
-    <section id="case-studies" class="section">
+    <section id="case-studies" class="section section-alt">
       <div class="container">
         <header class="section-header reveal">
-          <h2 data-i18n="case-title">Product x AI case studies</h2>
-          <p data-i18n="case-subtitle">
-            A selection of projects at the intersection of AI, data and product.
-          </p>
+          <h2>Case Studies</h2>
+          <p>Des missions Produit x IA menées avec des médecins, des banquiers, des conseillers emploi ou des apprenants.</p>
         </header>
 
-        <div class="grid">
-          <!-- Doctolib -->
+        <div class="card-grid">
           <article class="card reveal">
-            <p class="card-tag" data-i18n="case-docto-tag">Healthcare · Product x AI</p>
-            <h3 data-i18n="case-docto-title">
-              Automating document workflows for doctors
-            </h3>
-            <p data-i18n="case-docto-desc">
-              At Doctolib, I worked on AI-powered flows to reduce the time doctors
-              spend on repetitive administrative tasks, using OCR and ML to structure
-              medical documents at scale.
+            <header>
+              <p class="card-tag">Doctolib · 2020 – 2024</p>
+              <h3>Import de documents côté médecin</h3>
+            </header>
+            <p>
+              Depuis l’interface pro, nous avons automatisé l’ingestion de documents médicaux grâce à l’OCR
+              et au machine learning pour réduire le temps administratif des cabinets.
             </p>
-            <ul class="card-list">
-              <li data-i18n="case-docto-item-1">Problem discovery with doctors & assistants</li>
-              <li data-i18n="case-docto-item-2">MVP definition with data scientists & engineers</li>
-              <li data-i18n="case-docto-item-3">Focus on reliability, safety & UX</li>
+            <ul>
+              <li>Discovery avec médecins et assistantes pour prioriser les irritants</li>
+              <li>Définition d’un MVP fiable en collaboration avec data scientists & ingénieurs</li>
+              <li>Focus sur la qualité de reconnaissance et la sécurité des données</li>
             </ul>
           </article>
 
-          <!-- Betclic -->
           <article class="card reveal">
-            <p class="card-tag" data-i18n="case-betclic-tag">Sports betting · Product x AI</p>
-            <h3 data-i18n="case-betclic-title">
-              Clarifying betting rules & automating decisions
-            </h3>
-            <p data-i18n="case-betclic-desc">
-              At Betclic, I worked on structuring betting rules to serve both
-              the front-end UI and an AI companion, with a strong focus on
-              support automation and market standardisation.
+            <header>
+              <p class="card-tag">Doctolib · 2020 – 2024</p>
+              <h3>Migration de données médicales</h3>
+            </header>
+            <p>
+              Pour accompagner le changement de logiciel chez nos clients, nous avons conçu un parcours de
+              migration sécurisé basé sur la classification de texte pour traduire et synchroniser les dossiers patients.
             </p>
-            <ul class="card-list">
-              <li data-i18n="case-betclic-item-1">Rule system to power tooltips & chatbots</li>
-              <li data-i18n="case-betclic-item-2">Use cases around web scraping & auto-result</li>
-              <li data-i18n="case-betclic-item-3">Target: reduce support costs & confusion</li>
+            <ul>
+              <li>Classification supervisée pour mapper les champs sensibles</li>
+              <li>Design d’UX guidées pour que les équipes médicales gardent la main</li>
+              <li>Gestion des contraintes de chiffrement et de conformité</li>
             </ul>
           </article>
 
-          <!-- Data science consulting -->
           <article class="card reveal">
-            <p class="card-tag" data-i18n="case-ds-tag">Data science · Consulting</p>
-            <h3 data-i18n="case-ds-title">
-              From credit scoring to public employment services
-            </h3>
-            <p data-i18n="case-ds-desc">
-              Earlier in my career, I worked as a data scientist at DataRobot and
-              Capgemini, building ML models for clients such as banks and
-              public institutions.
+            <header>
+              <p class="card-tag">DBS Bank · 2020 – 2021</p>
+              <h3>Risque de crédit pour PME</h3>
+            </header>
+            <p>
+              Depuis Hong Kong, j’ai accompagné DBS dans un POC de scoring crédit SME, de la collecte de données
+              à la restitution des explications modèle pour les équipes risque.
             </p>
-            <ul class="card-list">
-              <li data-i18n="case-ds-item-1">Hands-on modelling & evaluation</li>
-              <li data-i18n="case-ds-item-2">Explaining ML to non-technical stakeholders</li>
-              <li data-i18n="case-ds-item-3">Bridging prototypes and production constraints</li>
+            <ul>
+              <li>Co-design du modèle de collection retail et du pipeline de scoring</li>
+              <li>Restitution des drivers pour convaincre risque & conformité</li>
+              <li>Coordination multi-BUs (trading, compliance, service client)</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <header>
+              <p class="card-tag">France Travail · 2018</p>
+              <h3>Détection de fraude à l’emploi fictif</h3>
+            </header>
+            <p>
+              Avec Capgemini Invent, nous avons conçu un modèle supervisé et une analyse de graphes qui ont permis
+              à France Travail (ex-Pôle Emploi) d’annuler plusieurs millions d’euros de fraudes.</p>
+            <ul>
+              <li>Constitution du dataset, features et pipeline de validation</li>
+              <li>Conception d’un scoring explicable pour les analystes fraude</li>
+              <li>Industrialisation avec les équipes métier et SI</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <header>
+              <p class="card-tag">SmartSubs · 2015</p>
+              <h3>Détection du vocabulaire anglais difficile</h3>
+            </header>
+            <p>
+              Dans la startup SmartSubs que j’ai cofondée, nous avons développé un algorithme qui repère le vocabulaire
+              complexe dans des films ou articles pour générer des sous-titres et quiz personnalisés.
+            </p>
+            <ul>
+              <li>Classement de difficulté des mots en Python</li>
+              <li>Expérience utilisateur multi-support (extension Chrome, email)</li>
+              <li>20k utilisateurs, médias nationaux et accélérateur Startup42</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SIDE PROJECTS -->
-    <section id="side-projects" class="section section-alt">
+    <section id="cv" class="section">
       <div class="container">
         <header class="section-header reveal">
-          <h2 data-i18n="side-title">Side projects</h2>
-          <p data-i18n="side-subtitle">
-            Experiments I build to learn faster and explore new ideas.
-          </p>
+          <h2>CV interactif</h2>
+          <p>Un aperçu vivant de mon parcours : expériences produit, transmission, puis cursus scolaire.</p>
         </header>
 
-        <div class="grid">
-          <article class="card reveal">
-            <p class="card-tag">Piru</p>
-            <h3 data-i18n="side-piru-title">Piru – a vocabulary learning app</h3>
-            <p data-i18n="side-piru-desc">
-              A web app to learn vocabulary with playful flashcards, spaced
-              repetition and friendly micro-interactions.
-            </p>
-          </article>
+        <div class="cv-groups">
+          <details open class="cv-group reveal">
+            <summary>Expériences Produit, Data & IA</summary>
+            <div class="cv-items">
+              <article>
+                <header>
+                  <h3>AI Product – Betclic Group</h3>
+                  <p class="meta">Depuis septembre 2025 · Bordeaux</p>
+                </header>
+                <p>Leadership produit IA pour un acteur européen des paris sportifs.</p>
+              </article>
+              <article>
+                <header>
+                  <h3>Senior PM & Product Manager Machine Learning – Doctolib</h3>
+                  <p class="meta">Septembre 2020 – Juin 2024 · Paris</p>
+                </header>
+                <ul>
+                  <li>Conception des parcours documents médecins (OCR + ML)</li>
+                  <li>Auto-complétion pathologies / allergies via ElasticSearch & dictionnaires médicaux</li>
+                  <li>Design de la migration logicielle avec classification de texte et contraintes de chiffrement</li>
+                </ul>
+              </article>
+              <article>
+                <header>
+                  <h3>« Customer-Facing » Data Scientist – DataRobot</h3>
+                  <p class="meta">Janvier 2019 – Août 2020 · Hong Kong</p>
+                </header>
+                <ul>
+                  <li>Accompagnement de 5 clients sur 12 projets ML/NLP, de la discovery à la livraison</li>
+                  <li>POC risque crédit SME, predictive underwriting, churn infirmiers, workshops pour 100 cliniciens</li>
+                  <li>Contribution à ~1,3M USD de ventes (nouveaux clients et upsells)</li>
+                </ul>
+              </article>
+              <article>
+                <header>
+                  <h3>Senior Data Scientist & Data Scientist – Capgemini Invent</h3>
+                  <p class="meta">Janvier 2016 – Décembre 2018 · Paris</p>
+                </header>
+                <ul>
+                  <li>Détection de fraude chômage pour France Travail via ML supervisé & graphes</li>
+                  <li>Analyse de défauts qualité Airbus (ML non supervisé + ElasticSearch)</li>
+                  <li>Tableaux de bord engagement IoT & datavisualisation d’offres data pour un acteur bancaire</li>
+                </ul>
+              </article>
+              <article>
+                <header>
+                  <h3>Founder – SmartSubs</h3>
+                  <p class="meta">Novembre 2014 – Décembre 2015 · Paris</p>
+                </header>
+                <ul>
+                  <li>Algorithme propriétaire de détection de vocabulaire difficile</li>
+                  <li>20k utilisateurs, 200k vues vidéo, partenariats négociés (Warner Bros France, Gymglish, Reverso)</li>
+                  <li>Accélérateur Startup42, passages médias Canal+, D8, Huffington Post, Konbini</li>
+                </ul>
+              </article>
+              <article>
+                <header>
+                  <h3>Data Scientist – Accenture</h3>
+                  <p class="meta">Février 2015 – Mai 2015 · Paris</p>
+                </header>
+                <p>Mission d’entrée de carrière avant de se consacrer à SmartSubs.</p>
+              </article>
+              <article>
+                <header>
+                  <h3>Equity Derivatives Strategy & Sales – UBS</h3>
+                  <p class="meta">Juin 2012 – Mai 2013 · Londres</p>
+                </header>
+                <p>Stage long en stratégie dérivés actions.</p>
+              </article>
+            </div>
+          </details>
 
-          <article class="card reveal">
-            <p class="card-tag">dictianary.com</p>
-            <h3 data-i18n="side-dict-title">dictianary.com – exploring word meaning</h3>
-            <p data-i18n="side-dict-desc">
-              A playground around words, definitions and context, mixing UX
-              experiments and language learning.
-            </p>
-          </article>
+          <details class="cv-group reveal">
+            <summary>Enseignement & transmission</summary>
+            <div class="cv-items">
+              <article>
+                <header>
+                  <h3>Teacher – AI / Machine Learning in Python – Le Wagon</h3>
+                  <p class="meta">Janvier 2025 – Août 2025 · Bordeaux</p>
+                </header>
+                <p>Animation des parcours B2B & B2C autour de l’IA et de la data.</p>
+              </article>
+              <article>
+                <header>
+                  <h3>Visiting lecturer – Text Mining & Machine Learning – École Polytechnique</h3>
+                  <p class="meta">Janvier 2018 – Mars 2018</p>
+                </header>
+                <p>Cours intensif sur le text mining pour les étudiants de l’X.</p>
+              </article>
+            </div>
+          </details>
 
+          <details class="cv-group reveal">
+            <summary>Cursus scolaire</summary>
+            <div class="cv-items">
+              <p>
+                Le CV PDF contient le détail de ma formation initiale. Le document étant généré en image,
+                je le mets à disposition ici :
+              </p>
+              <div class="cv-pdf">
+                <a class="btn ghost" href="Felix Revert - Resume - AI PM.pdf" target="_blank" rel="noopener">
+                  Ouvrir le CV PDF</a>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>Projets</h2>
+          <p>Side projects pour tester des idées et apprendre plus vite.</p>
+        </header>
+        <div class="card-grid">
           <article class="card reveal">
-            <p class="card-tag">AI & automation</p>
-            <h3 data-i18n="side-bots-title">AI agents & job-application automation</h3>
-            <p data-i18n="side-bots-desc">
-              A demo chatbot using MCP and a Firefox plugin that automatically
-              applies to roles using my CV, to explore what &ldquo;AI assistants&rdquo;
-              could look like in real workflows.
-            </p>
+            <h3>Piru</h3>
+            <p>Application web pour apprendre du vocabulaire via des flashcards ludiques et la répétition espacée.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Dictianary</h3>
+            <p>Terrain d’expérimentation autour des définitions, du sens des mots et d’interfaces minimalistes.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Autoapply</h3>
+            <p>Automatisation des candidatures avec agents IA et plugin navigateur, branché sur mon CV.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Chatbot demo</h3>
+            <p>Prototype de chatbot basé sur MCP pour explorer des workflows conversationnels réels.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Collaborative Filtering</h3>
+            <p>Description à venir.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- TALKS & TEACHING -->
     <section id="talks" class="section">
       <div class="container">
         <header class="section-header reveal">
-          <h2 data-i18n="talks-title">Talks & teaching</h2>
-          <p data-i18n="talks-subtitle">
-            I enjoy teaching AI & product management, from bootcamps to meetups.
-          </p>
+          <h2>Talks</h2>
+          <p>Conférences et meetups où je partage mes retours Produit x IA.</p>
         </header>
-
-        <div class="grid">
-          <article class="card reveal">
-            <p class="card-tag">Le Wagon</p>
-            <h3 data-i18n="talks-wagon-title">Teaching AI & Data at Le Wagon</h3>
-            <p data-i18n="talks-wagon-desc">
-              Instructor for AI & Data Science bootcamps and B2B programs, helping
-              students and teams build, evaluate and ship ML projects.
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <header>
+              <h3>Créer avec l’IA (2025)</h3>
+              <p class="meta">FrenchProduit Sud-Ouest · <a href="https://www.meetup.com/fr-FR/frenchproduit-sudouest/events/305513027" target="_blank" rel="noopener">Évènement</a></p>
+            </header>
+            <p>
+              Atelier/présentation sur la manière de prototyper rapidement avec l’IA.<br>
+              <a href="https://docs.google.com/presentation/d/1cIo7LiB3hjVq_8vWAd_UdHgWiLqnAuP4YXoDHDVXuV8/edit?usp=sharing" target="_blank" rel="noopener">Voir les slides</a>
             </p>
           </article>
-
-          <article class="card reveal">
-            <p class="card-tag">FrenchProduit</p>
-            <h3 data-i18n="talks-fp-title">AI in Product – FrenchProduit community</h3>
-            <p data-i18n="talks-fp-desc">
-              Talks about how AI changes product discovery, delivery and team
-              organisation, with concrete use cases.
+          <article class="timeline-item reveal">
+            <header>
+              <h3>Machine Learning Meetup Hong Kong (2020)</h3>
+            </header>
+            <p>
+              <a href="https://docs.google.com/presentation/d/17lUZLEIC0Mh5xVJsmbNBo-5_XzovpXlfiJ301LQYV_E/edit?usp=sharing" target="_blank" rel="noopener">Slides 2020</a>
             </p>
           </article>
-
-          <article class="card reveal">
-            <p class="card-tag">Meetups & conferences</p>
-            <h3 data-i18n="talks-ml-title">ML & AI meetups</h3>
-            <p data-i18n="talks-ml-desc">
-              Participating in ML meetups and conferences to share lessons learned
-              from real-world AI products and listen to practitioners.
+          <article class="timeline-item reveal">
+            <header>
+              <h3>Machine Learning Meetup Hong Kong (2019)</h3>
+            </header>
+            <p>
+              <a href="https://docs.google.com/presentation/d/1N5Ulj9Pefa1R92BJxwe42S2Y-0Z9l06dJe7DPRzPpn8/edit?usp=sharing" target="_blank" rel="noopener">Slides 2019</a>
             </p>
+          </article>
+          <article class="timeline-item reveal">
+            <header>
+              <h3>APAC EHR 2019</h3>
+            </header>
+            <p>Photo : <a href="pictures/APAC-EHR-2019.jpg" target="_blank" rel="noopener">voir</a></p>
+          </article>
+          <article class="timeline-item reveal">
+            <header>
+              <h3>DBS Executive Demoday 2019</h3>
+            </header>
+            <p>Photo : <a href="pictures/DBS-talk.jpg" target="_blank" rel="noopener">voir</a></p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section section-alt">
+    <section id="articles" class="section section-alt">
       <div class="container">
         <header class="section-header reveal">
-          <h2 data-i18n="about-title">About</h2>
-          <p data-i18n="about-subtitle">
-            A bit more about who I am and what shapes the way I work.
-          </p>
+          <h2>Articles</h2>
+          <p>J’écris sur le Produit, le Machine Learning, les mathématiques. Cela fait 3 ans que je n’ai pas écrit et je dois m’y remettre.</p>
         </header>
-
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <h3 data-i18n="about-bio-title">Short bio</h3>
-            <p data-i18n="about-bio-text">
-              I’m a French engineer with a background in data science and product
-              management. I’ve worked across healthcare, sports betting and
-              consulting, and I love turning complex, ambiguous problems into clear
-              product decisions that teams can rally around.
-            </p>
-            <p data-i18n="about-bio-text-2">
-              Outside of work, three passions shape how I think and build:
-              chess, kitesurfing, and climate & the environment.
-            </p>
-          </div>
-
-          <div class="about-passions">
-            <article class="passion-card reveal">
-              <h3 data-i18n="about-chess-title">Chess</h3>
-              <p data-i18n="about-chess-text">
-                Chess taught me to think in plans rather than single moves,
-                evaluate trade-offs and stay calm with incomplete information.
-                In product work, that means strategy over feature lists and
-                clear long-term thinking.
-              </p>
-            </article>
-
-            <article class="passion-card reveal">
-              <h3 data-i18n="about-kite-title">Kitesurfing</h3>
-              <p data-i18n="about-kite-text">
-                Kitesurfing is a masterclass in iteration and risk management:
-                you fall a lot, adjust quickly, and learn to respect constraints.
-                That’s how I like to run AI experiments and product discovery.
-              </p>
-            </article>
-
-            <article class="passion-card reveal">
-              <h3 data-i18n="about-climate-title">Environment</h3>
-              <p data-i18n="about-climate-text">
-                As a &ldquo;Fresque du Climat&rdquo; facilitator, I care deeply
-                about climate and orders of magnitude. I try to focus on 10x
-                levers rather than cosmetic optimisations, both in climate and
-                in product work.
-              </p>
-            </article>
-          </div>
-        </div>
+        <p class="reveal">
+          Retrouvez mes publications sur Medium :
+          <a href="https://medium.com/@FelixRvrt" target="_blank" rel="noopener">@FelixRvrt</a>
+        </p>
       </div>
     </section>
 
-    <!-- CONTACT / WORK WITH ME -->
-    <section id="contact" class="section">
+    <section id="training" class="section">
       <div class="container">
         <header class="section-header reveal">
-          <h2 data-i18n="contact-title">Work with me</h2>
-          <p data-i18n="contact-subtitle">
-            I’m open to freelance missions, advisory work and collaborative projects
-            around Product x AI.
-          </p>
+          <h2>Training</h2>
+          <p>J’enseigne et je forme des équipes produit & tech sur l’IA.</p>
         </header>
-
-        <div class="contact-layout">
-          <div class="contact-text reveal">
-            <h3 data-i18n="contact-how-title">How I can help</h3>
-            <ul class="contact-list">
-              <li data-i18n="contact-how-item-1">
-                AI product discovery: identify valuable use cases and scope MVPs.
-              </li>
-              <li data-i18n="contact-how-item-2">
-                Product leadership for AI teams: bridging DS, engineering and business.
-              </li>
-              <li data-i18n="contact-how-item-3">
-                Workshops & training on AI for product teams.
-              </li>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <header>
+              <h3>Teacher – Le Wagon (2025)</h3>
+            </header>
+            <p>Formations B2B & B2C sur les fondamentaux produit x IA.</p>
+          </article>
+          <article class="timeline-item reveal">
+            <header>
+              <h3>Crash course Machine Learning (2020)</h3>
+            </header>
+            <ul>
+              <li><a href="https://docs.google.com/presentation/d/1pljIWQxsMhQaT6tCvTTVq3cQdPEamAFZdNJ-PYoFK7s/edit?usp=drive_link" target="_blank" rel="noopener">Introduction</a></li>
+              <li><a href="https://docs.google.com/presentation/d/1Lu_fT7_9krugTs_0kw2HAq7Jmtvk9CAWhRkNgA6a264/edit?usp=drive_link" target="_blank" rel="noopener">Hands-on Python ML</a></li>
+              <li><a href="https://docs.google.com/presentation/d/1LhqQXCzrfSulkWofvQ3V2ynr0NvlGagjMEQlbZjVxYk/edit?usp=drive_link" target="_blank" rel="noopener">Atelier data science</a></li>
+              <li><a href="https://docs.google.com/presentation/d/1YbS8APbHbPRUwkDiDEoL6S_2ew8ZTl_1LlKw68mukfw/edit?usp=drive_link" target="_blank" rel="noopener">Synthèse</a></li>
             </ul>
-          </div>
+          </article>
+        </div>
+        <div class="media-grid">
+          <figure class="reveal"><img src="pictures/Training-exec-IA.JPG" alt="Formation exécutive IA 2020"><figcaption>Executive training – What is Machine Learning (2020)</figcaption></figure>
+          <figure class="reveal"><img src="pictures/Training-Python-ML.jpg" alt="Formation Python ML"><figcaption>Hands-on Python Machine Learning (2020)</figcaption></figure>
+          <figure class="reveal"><img src="pictures/Training-X-HEC-Python-ML.JPG" alt="Formation X-HEC Python ML"><figcaption>Programme X-HEC – Data Science & AI for Business</figcaption></figure>
+        </div>
+      </div>
+    </section>
 
-          <div class="contact-card reveal">
-            <p data-i18n="contact-email-text">
-              The easiest way to reach me is by email or LinkedIn:
+    <section id="chess" class="section section-alt">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>Chess</h2>
+          <p>Les échecs structurent ma manière de penser produit et stratégie.</p>
+        </header>
+        <div class="chess-content">
+          <div class="chess-text reveal">
+            <p>
+              <a href="https://ratings.fide.com/profile/653009649" target="_blank" rel="noopener">Mon profil FIDE</a>.
+              J’ai eu la chance de prendre des cours individuels avec Sébastien Mazé (coach de l’équipe de France),
+              de jouer en équipe première du club Caïssa, et d’affronter Laurent Fressinet, Matthieu Cornette,
+              Étienne Bacrot et Thibault Fantinel lors d’évènements amicaux.
             </p>
             <p>
-              <a href="mailto:youremail@example.com" class="contact-link">
-                youremail@example.com
-              </a><br>
-              <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noopener" class="contact-link">
-                LinkedIn
-              </a>
+              Ma plus belle victoire officielle : contre Rene (2168) au championnat d’Île-de-France 2024.
+              Partie de 4h qui s’est inversée grâce à un grand roque, puis un sacrifice de cavalier et de tour.
             </p>
           </div>
+          <div class="chess-viewer reveal">
+            <div id="chess-game"></div>
+          </div>
+        </div>
+        <div class="media-grid">
+          <figure class="reveal"><img src="pictures/Chess 1.JPG" alt="Tournoi interne au club"><figcaption>Tournoi interne Caïssa</figcaption></figure>
+          <figure class="reveal"><img src="pictures/Chess 2.png" alt="Open #1 championnat de France 2024"><figcaption>Open #1 – Championnat de France 2024</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="kitesurf" class="section">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>Kitesurf</h2>
+          <p>Un équilibre entre exploration, itérations rapides et gestion du risque.</p>
+        </header>
+        <div class="kitesurf-content reveal">
+          <div>
+            <h3>Quiver</h3>
+            <ul>
+              <li>Duotone Mono 15m (2019)</li>
+              <li>Duotone Rebel 13m (2019) – mon aile préférée</li>
+              <li>Slingshot RPM 12m (2010) – ma première aile</li>
+              <li>North Dice 10m (2013)</li>
+              <li>Duotone Neo 8m (2019)</li>
+              <li>Duotone Neo 6m (2019)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Spots où j’ai ridé</h3>
+            <ul>
+              <li>Hong Kong, Lantau Island</li>
+              <li>Vietnam, Mỹ Hòa</li>
+              <li>Îles Canaries, El Médano</li>
+              <li>Grèce, Prasonisi</li>
+              <li>France, presque partout</li>
+            </ul>
+          </div>
+        </div>
+        <div class="media-grid">
+          <figure class="reveal"><img src="pictures/kitesurf 1.png" alt="Session de kitesurf"><figcaption>Session en pleine vitesse</figcaption></figure>
+          <figure class="reveal"><img src="pictures/kitesurf 2.jpg" alt="Navigation au large"><figcaption>Navigation au large</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="environment" class="section section-alt">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2>Environment</h2>
+          <p>Je suis animateur de la Fresque du Climat et j’ai formé une centaine de collaborateurs aux enjeux climatiques.</p>
+        </header>
+        <p class="reveal">
+          La Fresque du Climat m’aide à traduire des données scientifiques en décisions concrètes. En atelier, on cherche les leviers x10 plutôt que les petits gains cosmétiques.
+          <a href="https://fresqueduclimat.org/" target="_blank" rel="noopener">fresqueduclimat.org</a>
+        </p>
+        <div class="media-grid">
+          <figure class="reveal"><img src="pictures/Climate Fresk 2.png" alt="Atelier Fresque du Climat"><figcaption>Atelier Fresque – groupe 1</figcaption></figure>
+          <figure class="reveal"><img src="pictures/Climate Fresk 3.png" alt="Participants Fresque du Climat"><figcaption>Atelier Fresque – groupe 2</figcaption></figure>
+          <figure class="reveal"><img src="pictures/Climate Fresk 4.png" alt="Formation climat"><figcaption>Formation climat en entreprise</figcaption></figure>
+          <figure class="reveal"><img src="pictures/Climate Fresk 5.png" alt="Synthèse Fresque du Climat"><figcaption>Synthèse collective</figcaption></figure>
         </div>
       </div>
     </section>
@@ -330,13 +494,11 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>&copy; <span id="year"></span> Félix Revert</p>
-      <p class="footer-note" data-i18n="footer-note">
-        Built as a lightweight, bilingual, responsive portfolio.
-      </p>
+      <p class="footer-note">Portfolio Produit x IA – construit avec soin et sobriété.</p>
     </div>
   </footer>
 
-  <script src="translations.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mliebelt/pgn-viewer@1/lib/pgnv.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
