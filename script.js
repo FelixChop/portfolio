@@ -1,54 +1,85 @@
+// script.js
 (function () {
+  const root = document.documentElement;
+  const langButtons = document.querySelectorAll(".lang-btn");
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".nav");
-  const navLinks = document.querySelectorAll(".nav-links a");
-  const currentPage = document.body.dataset.page;
   const yearSpan = document.getElementById("year");
+  const translatableElements = document.querySelectorAll("[data-i18n]");
+  const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
 
-  if (navToggle && nav) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("nav-open");
-      navToggle.classList.toggle("nav-open", isOpen);
+  let currentLang = "en";
+
+  function applyTranslations(lang) {
+    const dict = translations[lang];
+    if (!dict) return;
+
+    translatableElements.forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key]) {
+        el.textContent = dict[key];
+      }
     });
+
+    root.setAttribute("lang", lang);
+    currentLang = lang;
   }
 
-  navLinks.forEach((link) => {
-    const page = link.dataset.page;
-    if (page && page === currentPage) {
-      link.setAttribute("aria-current", "page");
-    }
+  langButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const lang = btn.dataset.lang;
+      if (lang === currentLang) return;
 
-    link.addEventListener("click", () => {
-      if (nav && nav.classList.contains("nav-open")) {
-        nav.classList.remove("nav-open");
-        if (navToggle) {
-          navToggle.classList.remove("nav-open");
-        }
-      }
+      langButtons.forEach((b) => {
+        b.classList.toggle("active", b === btn);
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+
+      applyTranslations(lang);
     });
   });
 
+  // Mobile nav toggle
+  navToggle.addEventListener("click", () => {
+    nav.classList.toggle("nav-open");
+    navToggle.classList.toggle("nav-open");
+  });
+
+  // Close nav on link click (mobile)
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+      nav.classList.remove("nav-open");
+      navToggle.classList.remove("nav-open");
+    });
+  });
+
+  // Scroll reveal
+  const revealElements = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealElements.forEach((el) => io.observe(el));
+
+  // Dynamic year
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  const viewers = document.querySelectorAll(".pgn-viewer[data-pgn]");
-  if (viewers.length && window.PGNV) {
-    viewers.forEach((el, index) => {
-      if (!el.id) {
-        el.id = `pgn-viewer-${index}`;
-      }
-      try {
-        window.PGNV.pgnView(el.id, {
-          pgn: el.dataset.pgn,
-          theme: "wood",
-          locale: "fr",
-          pieceStyle: "merida",
-          boardSize: "responsive",
-        });
-      } catch (error) {
-        console.error("PGN viewer error", error);
-      }
-    });
-  }
+  // Initial translations (EN by default)
+  applyTranslations(currentLang);
 })();
