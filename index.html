@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mliebelt/pgn-viewer@3.6.7/dist/styles/chessboard.css">
 </head>
-<body>
+<body class="lang-fr">
   <header class="site-header">
     <div class="container header-inner">
       <a href="#home" class="logo">Félix Revert</a>
@@ -20,18 +20,23 @@
 
       <nav class="nav" aria-label="Navigation principale">
         <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#case-studies">Case Studies</a></li>
-          <li><a href="#cv">CV</a></li>
-          <li><a href="#projects">Projets</a></li>
-          <li><a href="#talks">Talks</a></li>
-          <li><a href="#articles">Articles</a></li>
-          <li><a href="#training">Training</a></li>
-          <li><a href="#chess">Chess</a></li>
-          <li><a href="#kitesurf">Kitesurf</a></li>
-          <li><a href="#environment">Environment</a></li>
+          <li><a href="#home"><span data-lang="fr">Accueil</span><span data-lang="en">Home</span></a></li>
+          <li><a href="#case-studies"><span data-lang="fr">Études de cas</span><span data-lang="en">Case studies</span></a></li>
+          <li><a href="#cv"><span data-lang="fr">CV</span><span data-lang="en">Resume</span></a></li>
+          <li><a href="#projects"><span data-lang="fr">Projets</span><span data-lang="en">Projects</span></a></li>
+          <li><a href="#talks"><span data-lang="fr">Talks</span><span data-lang="en">Talks</span></a></li>
+          <li><a href="#articles"><span data-lang="fr">Articles</span><span data-lang="en">Articles</span></a></li>
+          <li><a href="#training"><span data-lang="fr">Training</span><span data-lang="en">Training</span></a></li>
+          <li><a href="#chess"><span data-lang="fr">Chess</span><span data-lang="en">Chess</span></a></li>
+          <li><a href="#kitesurf"><span data-lang="fr">Kitesurf</span><span data-lang="en">Kitesurf</span></a></li>
+          <li><a href="#environment"><span data-lang="fr">Environment</span><span data-lang="en">Environment</span></a></li>
         </ul>
       </nav>
+
+      <button class="lang-toggle" type="button" aria-label="Passer en anglais">
+        <span data-lang="fr">Français / Anglais</span>
+        <span data-lang="en">English / French</span>
+      </button>
     </div>
   </header>
 
@@ -39,21 +44,38 @@
     <section id="home" class="section hero">
       <div class="container hero-grid">
         <div class="hero-text reveal">
-          <p class="eyebrow">Product x AI builder</p>
-          <h1>Bonjour, je suis Félix Revert.</h1>
-          <p>
-            Je conçois et pilote des produits IA qui résolvent de vrais problèmes : chez Doctolib (2020-2024) j’ai guidé l’import
-            de documents médicaux et la migration de données sensibles, chez DBS (2020-2021) j’ai accompagné le risque de crédit,
-            chez France Travail (2018) j’ai aidé à détecter des fraudes, et avec SmartSubs (2015) j’ai construit une expérience
-            pour apprendre l’anglais autrement.
+          <p class="eyebrow"><span data-lang="fr">Product x AI builder</span><span data-lang="en">Product x AI builder</span></p>
+          <h1>
+            <span data-lang="fr">Bonjour, je suis Félix Revert.</span>
+            <span data-lang="en">Hi, I’m Félix Revert.</span>
+          </h1>
+          <p data-lang="fr">
+            Je conçois et pilote des produits IA qui résolvent de vrais problèmes : chez Doctolib (2020-2024) j’ai guidé l’import de documents médicaux, chez DBS (2020-2021) j’ai accompagné la gestion du risque de crédit, chez France Travail (2018) j’ai aidé à détecter des fraudes et avec SmartSubs (2015) j’ai construit une expérience pour apprendre l’anglais autrement.
           </p>
-          <p>
-            Je suis un builder : je code des algorithmes, je façonne des UX simples, et j’aime rapprocher data scientists,
-            ingénieurs et équipes métier pour livrer rapidement.
+          <p data-lang="en">
+            I design and ship AI products that solve real problems: at Doctolib (2020-2024) I led medical document workflows, at DBS (2020-2021) I supported credit risk initiatives, at France Travail (2018) I helped detect fraud cases, and with SmartSubs (2015) I built a new way to learn English.
           </p>
+          <p data-lang="fr">
+            Je suis un builder : je code des algorithmes, je façonne des UX simples et j’aime rapprocher data scientists, ingénieurs et équipes métier pour livrer rapidement.
+          </p>
+          <p data-lang="en">
+            I’m a builder: I code algorithms, shape simple UX and bridge data scientists, engineers and business teams to deliver fast.
+          </p>
+          <div class="hero-highlights">
+            <p data-lang="fr"><strong>Profil international :</strong> 3,5 ans à l’étranger (Hong Kong, Chine ; Londres, Royaume-Uni ; Berlin, Allemagne).</p>
+            <p data-lang="en"><strong>International profile:</strong> 3.5 years abroad (Hong Kong, China; London, United Kingdom; Berlin, Germany).</p>
+            <p data-lang="fr"><strong>Bilingue :</strong> français &amp; anglais.</p>
+            <p data-lang="en"><strong>Bilingual:</strong> French &amp; English.</p>
+          </div>
           <div class="hero-actions">
-            <a class="btn primary" href="#case-studies">Explorer les études de cas</a>
-            <a class="btn ghost" href="mailto:felixrevert@gmail.com?subject=Discutons%20Produit%20x%20IA">Écrire à Félix</a>
+            <a class="btn primary" href="#case-studies">
+              <span data-lang="fr">Explorer les études de cas</span>
+              <span data-lang="en">See the case studies</span>
+            </a>
+            <a class="btn ghost" href="mailto:felixrevert@gmail.com?subject=Discutons%20Produit%20x%20IA">
+              <span data-lang="fr">Écrire à Félix</span>
+              <span data-lang="en">Email Félix</span>
+            </a>
           </div>
         </div>
         <div class="hero-side">
@@ -61,11 +83,14 @@
             <img src="pictures/photo-portrait.jpg" alt="Portrait de Félix Revert">
           </figure>
           <div class="hero-card reveal">
-            <h2>What I do</h2>
+            <h2>
+              <span data-lang="fr">What I do</span>
+              <span data-lang="en">What I do</span>
+            </h2>
             <ul>
-              <li>Diagnostic Produit x IA et cadrage d’expériences concrètes</li>
-              <li>Prototypage rapide (modèles, prompts, flux) et mesure d’impact</li>
-              <li>UX sobres et pédagogiques pour embarquer soignants, analystes ou clients</li>
+              <li><span data-lang="fr">Diagnostic Produit x IA et cadrage d’expériences concrètes</span><span data-lang="en">AI product discovery and scoping concrete experiences</span></li>
+              <li><span data-lang="fr">Prototypage rapide (modèles, prompts, flux) et mesure d’impact</span><span data-lang="en">Rapid prototyping (models, prompts, flows) and impact measurement</span></li>
+              <li><span data-lang="fr">UX sobres et pédagogiques pour embarquer soignants, analystes ou clients</span><span data-lang="en">Clear, educational UX for doctors, analysts or customers</span></li>
             </ul>
           </div>
         </div>
@@ -75,60 +100,49 @@
     <section id="case-studies" class="section">
       <div class="container">
         <header class="section-header reveal">
-          <h2>Case Studies</h2>
-          <p>Des missions Produit x IA menées au contact des utilisateurs et des données.</p>
+          <h2><span data-lang="fr">Case Studies</span><span data-lang="en">Case Studies</span></h2>
+          <p data-lang="fr">Des missions Produit x IA menées au contact des utilisateurs et des données.</p>
+          <p data-lang="en">Product x AI engagements delivered close to users and data.</p>
         </header>
         <div class="grid case-grid">
           <article class="card reveal">
             <header>
               <p class="card-tag">Doctolib · 2020–2024</p>
-              <h3>Import de documents côté médecin</h3>
+              <h3><span data-lang="fr">Import de documents côté médecin</span><span data-lang="en">Doctor-side document import</span></h3>
             </header>
-            <p>
-              Cadrage et livraison d’un flux d’import automatisé pour les cabinets : classification OCR, contrôle qualité, UX
-              adaptée aux assistants médicaux afin d’accélérer la prise en charge.
-            </p>
-          </article>
-          <article class="card reveal">
-            <header>
-              <p class="card-tag">Doctolib · 2020–2024</p>
-              <h3>Migration de données médicales</h3>
-            </header>
-            <p>
-              Construction d’un processus de migration sécurisé : text mining supervisé, gestion d’un chiffrement fort et
-              accompagnement des soignants pour une transition fluide vers Doctolib Médecin.
-            </p>
+            <p data-lang="fr">Cadrage et livraison d’un flux d’import automatisé : classification OCR, contrôle qualité et UX adaptée aux assistants médicaux.</p>
+            <p data-lang="en">Framed and shipped an automated import flow: OCR classification, quality control and UX tailored to medical assistants.</p>
           </article>
           <article class="card reveal">
             <header>
               <p class="card-tag">DBS · 2020–2021</p>
-              <h3>Risque de crédit</h3>
+              <h3><span data-lang="fr">Risque de crédit</span><span data-lang="en">Credit risk</span></h3>
             </header>
-            <p>
-              Définition des use cases, prototypage et mise en production d’outils ML pour le scoring SME et la priorisation des
-              relances, en lien direct avec les équipes métier à Hong Kong et Singapour.
-            </p>
+            <p data-lang="fr">Définition des use cases, prototypage et mise en production d’outils ML pour le scoring SME et la priorisation des relances.</p>
+            <p data-lang="en">Shaped use cases, prototyped and deployed ML tools for SME scoring and collection prioritisation.</p>
           </article>
           <article class="card reveal">
             <header>
               <p class="card-tag">France Travail · 2018</p>
-              <h3>Détection de cas de fraude</h3>
+              <h3><span data-lang="fr">Détection de cas de fraude</span><span data-lang="en">Fraud detection</span></h3>
             </header>
-            <p>
-              Création d’un modèle de détection d’emploi fictif ayant permis d’anticiper des versements indus et de sécuriser des
-              millions d’euros d’allocations publiques.
-            </p>
+            <p data-lang="fr">Création d’un modèle détectant les emplois fictifs afin d’anticiper les versements indus et sécuriser les allocations publiques.</p>
+            <p data-lang="en">Built a model spotting fictitious employment to prevent undue payments and secure public benefits.</p>
           </article>
           <article class="card reveal">
             <header>
               <p class="card-tag">SmartSubs · 2015</p>
-              <h3>Vocabulaire d’anglais difficile</h3>
+              <h3><span data-lang="fr">Vocabulaire d’anglais difficile</span><span data-lang="en">Challenging English vocabulary</span></h3>
             </header>
-            <p>
-              Conception d’un moteur propriétaire pour repérer automatiquement les mots complexes dans films, séries ou articles,
-              et proposer une expérience d’apprentissage contextualisée.
-            </p>
+            <p data-lang="fr">Conception d’un moteur propriétaire pour repérer automatiquement les mots complexes et proposer une expérience d’apprentissage contextualisée.</p>
+            <p data-lang="en">Designed a proprietary engine to detect complex words and deliver a contextualised learning experience.</p>
           </article>
+        </div>
+        <div class="section-cta reveal">
+          <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Vos%20cas%20Produit%20x%20IA">
+            <span data-lang="fr">Travailler avec moi</span>
+            <span data-lang="en">Work with me</span>
+          </a>
         </div>
         <div class="section-cta reveal">
           <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Vos%20cas%20Produit%20x%20IA">Travailler avec moi</a>
@@ -139,69 +153,122 @@
     <section id="cv" class="section section-alt">
       <div class="container">
         <header class="section-header reveal">
-          <h2>CV interactif</h2>
-          <p>Expériences professionnelles, enseignement et formation regroupés par thématique.</p>
+          <h2><span data-lang="fr">CV</span><span data-lang="en">CV</span></h2>
+          <p data-lang="fr">Expériences professionnelles, enseignement et études regroupés par thématique.</p>
+          <p data-lang="en">Professional experience, teaching and education grouped by theme.</p>
         </header>
         <div class="cv-columns">
-          <section class="cv-group reveal">
-            <h3>Expériences produit & data</h3>
-            <details open>
-              <summary>Betclic Group — AI Product · Sep 2025 – Présent · Bordeaux</summary>
-              <p>Leadership produit sur les initiatives IA du groupe paris sportifs.</p>
-            </details>
-            <details>
-              <summary>Doctolib — Senior PM · Jan 2023 – Jun 2024 · Paris</summary>
-              <p>Responsable des parcours médecins sur la partie documents et migrations.</p>
-            </details>
-            <details>
-              <summary>Doctolib — Product Manager ML · Sep 2020 – Dec 2022 · Paris</summary>
-              <p>Design d’expériences ML : classification de documents, auto-complétion ICD11, migration logicielle chiffrée.</p>
-            </details>
-            <details>
-              <summary>DataRobot — «Customer-Facing» Data Scientist · Jan 2019 – Aug 2020 · Hong Kong</summary>
-              <p>Accompagnement pré/post vente, POC crédit, santé, assurance et automatisation du re-training.</p>
-            </details>
-            <details>
-              <summary>Capgemini Invent — Senior Data Scientist · Jul 2017 – Dec 2018 · Paris</summary>
-              <p>Modèles ML pour Pôle Emploi et autres clients grands comptes.</p>
-            </details>
-            <details>
-              <summary>Capgemini Consulting — Data Scientist · Jan 2016 – Jun 2017 · Paris</summary>
-              <p>Analytics retail & banque : tableaux de bord temps réel, visualisations data et automatisation Python/SQL.</p>
-            </details>
-            <details>
-              <summary>Accenture — Data Scientist · Feb 2015 – May 2015 · Paris</summary>
-              <p>Premiers pas en data science avant de me consacrer à SmartSubs.</p>
-            </details>
-            <details>
-              <summary>SmartSubs — Co-fondateur · Nov 2014 – Dec 2015 · Paris</summary>
-              <p>EdTech autour des sous-titres intelligents et d’une extension Chrome.</p>
-            </details>
-            <details>
-              <summary>UBS — Equity Derivatives Strategy &amp; Sales (stage) · Jun 2012 – May 2013 · Londres</summary>
-              <p>Analyse sur les desks dérivés actions.</p>
-            </details>
+          <section class="cv-group cv-group--wide reveal">
+            <h3><span data-lang="fr">Expériences produit &amp; data</span><span data-lang="en">Product &amp; data experience</span></h3>
+            <div class="cv-items">
+              <details open>
+                <summary>
+                  <span data-lang="fr">Betclic Group — AI Product · Sep 2025 – Présent · Bordeaux</span>
+                  <span data-lang="en">Betclic Group — AI Product · Sep 2025 – Present · Bordeaux</span>
+                </summary>
+                <p data-lang="fr">Leadership produit sur les initiatives IA du groupe paris sportifs.</p>
+                <p data-lang="en">Product leadership on AI initiatives for the sports betting group.</p>
+              </details>
+              <details>
+                <summary>
+                  <span data-lang="fr">Doctolib — Senior PM &amp; Product Manager ML · 2020 – 2024 · Paris</span>
+                  <span data-lang="en">Doctolib — Senior PM &amp; ML Product Manager · 2020 – 2024 · Paris</span>
+                </summary>
+                <p data-lang="fr">Pilotage des parcours médecins : import de documents, classification OCR, auto-complétion ICD11 et migrations sécurisées.</p>
+                <p data-lang="en">Led doctor workflows: document import, OCR classification, ICD11 auto-completion and secure migrations.</p>
+              </details>
+              <details>
+                <summary>
+                  <span data-lang="fr">DataRobot — Customer-Facing Data Scientist · 2019 – 2020 · Hong Kong</span>
+                  <span data-lang="en">DataRobot — Customer-Facing Data Scientist · 2019 – 2020 · Hong Kong</span>
+                </summary>
+                <p data-lang="fr">Accompagnement pré/post vente, POC crédit, santé, assurance et automatisation du re-training.</p>
+                <p data-lang="en">Supported pre/post sales, credit, health and insurance POCs, plus automated model retraining.</p>
+              </details>
+              <details>
+                <summary>
+                  <span data-lang="fr">Capgemini Invent &amp; Consulting — Senior &amp; Data Scientist · 2016 – 2018 · Paris</span>
+                  <span data-lang="en">Capgemini Invent &amp; Consulting — Senior &amp; Data Scientist · 2016 – 2018 · Paris</span>
+                </summary>
+                <p data-lang="fr">Modèles ML pour Pôle Emploi et clients grands comptes, analytics retail &amp; banque, automatisations Python/SQL.</p>
+                <p data-lang="en">Built ML models for Pôle Emploi and large accounts, retail &amp; banking analytics, Python/SQL automations.</p>
+              </details>
+              <details>
+                <summary>
+                  <span data-lang="fr">Accenture — Data Scientist · 2015 · Paris</span>
+                  <span data-lang="en">Accenture — Data Scientist · 2015 · Paris</span>
+                </summary>
+                <p data-lang="fr">Premiers pas en data science avant de lancer SmartSubs.</p>
+                <p data-lang="en">First data science role before co-founding SmartSubs.</p>
+              </details>
+              <details>
+                <summary>
+                  <span data-lang="fr">SmartSubs — Co-fondateur · 2014 – 2015 · Paris</span>
+                  <span data-lang="en">SmartSubs — Co-founder · 2014 – 2015 · Paris</span>
+                </summary>
+                <p data-lang="fr">EdTech autour des sous-titres intelligents et d’une extension Chrome.</p>
+                <p data-lang="en">EdTech project around smart subtitles and a Chrome extension.</p>
+              </details>
+              <details>
+                <summary>
+                  <span data-lang="fr">UBS — Equity Derivatives Strategy &amp; Sales (stage) · 2012 – 2013 · Londres</span>
+                  <span data-lang="en">UBS — Equity Derivatives Strategy &amp; Sales (intern) · 2012 – 2013 · London</span>
+                </summary>
+                <p data-lang="fr">Analyse sur les desks dérivés actions.</p>
+                <p data-lang="en">Analysis on equity derivatives desks.</p>
+              </details>
+            </div>
           </section>
 
           <section class="cv-group reveal">
-            <h3>Expériences d’enseignement</h3>
-            <details open>
-              <summary>Le Wagon — Teacher IA &amp; Machine Learning · Jan 2025 – Aug 2025 · Bordeaux</summary>
-              <p>Formation IA pour programmes B2B &amp; B2C.</p>
-            </details>
-            <details>
-              <summary>École Polytechnique — Visiting lecturer · Jan 2018 – Mar 2018</summary>
-              <p>Cours de text mining et de machine learning.</p>
-            </details>
+            <h3><span data-lang="fr">Expériences d’enseignement</span><span data-lang="en">Teaching experience</span></h3>
+            <p class="cv-note" data-lang="fr">J’ai formé des centaines de professionnels au Machine Learning et à l’IA, en bootcamps, séminaires exécutifs et programmes certifiants.</p>
+            <p class="cv-note" data-lang="en">I have trained hundreds of professionals in Machine Learning and AI through bootcamps, executive sessions and certification programs.</p>
+            <div class="cv-items">
+              <details open>
+                <summary>
+                  <span data-lang="fr">Le Wagon — Teacher IA &amp; Machine Learning · 2025 · Bordeaux</span>
+                  <span data-lang="en">Le Wagon — AI &amp; ML Teacher · 2025 · Bordeaux</span>
+                </summary>
+                <p data-lang="fr">Enseignement IA pour les cohortes B2B &amp; B2C.</p>
+                <p data-lang="en">Taught AI for B2B &amp; B2C cohorts.</p>
+              </details>
+              <details>
+                <summary>
+                  <span data-lang="fr">École Polytechnique — Visiting lecturer · 2018 · Palaiseau</span>
+                  <span data-lang="en">École Polytechnique — Visiting lecturer · 2018 · Palaiseau</span>
+                </summary>
+                <p data-lang="fr">Cours de text mining et de machine learning.</p>
+                <p data-lang="en">Delivered text mining and machine learning courses.</p>
+              </details>
+              <details>
+                <summary>
+                  <span data-lang="fr">ENSAE Paris — Chargé de TD Python · 2015 · Palaiseau</span>
+                  <span data-lang="en">ENSAE Paris — Python teaching assistant · 2015 · Palaiseau</span>
+                </summary>
+                <p data-lang="fr">Animation de travaux dirigés de Python pour les élèves ingénieurs.</p>
+                <p data-lang="en">Led Python tutorials for engineering students.</p>
+              </details>
+            </div>
           </section>
 
           <section class="cv-group reveal">
-            <h3>Cursus scolaire</h3>
-            <p>Informations détaillées à venir.</p>
+            <h3><span data-lang="fr">Études supérieures</span><span data-lang="en">Higher education</span></h3>
+            <div class="cv-education">
+              <p data-lang="fr"><strong>ENSAE ParisTech</strong> · 2010 – 2014 · Dernière année en échange à l’Université Humboldt de Berlin (Allemagne).</p>
+              <p data-lang="en"><strong>ENSAE ParisTech</strong> · 2010 – 2014 · Final year exchange at Humboldt University of Berlin (Germany).</p>
+              <p data-lang="fr"><strong>Université Humboldt de Berlin</strong> · 2013 – 2014 · Master en échange.</p>
+              <p data-lang="en"><strong>Humboldt University of Berlin</strong> · 2013 – 2014 · Exchange master year.</p>
+              <p data-lang="fr"><strong>Classes préparatoires MPSI / MP*</strong> · 2008 – 2010.</p>
+              <p data-lang="en"><strong>Preparatory classes MPSI / MP*</strong> · 2008 – 2010.</p>
+            </div>
           </section>
         </div>
         <div class="section-cta reveal">
-          <a class="btn ghost" href="https://www.linkedin.com/in/felix-revert-00998852/" target="_blank" rel="noopener">Voir mon LinkedIn</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/felix-revert-00998852/" target="_blank" rel="noopener">
+            <span data-lang="fr">Voir mon LinkedIn</span>
+            <span data-lang="en">View my LinkedIn</span>
+          </a>
         </div>
       </div>
     </section>
@@ -209,33 +276,70 @@
     <section id="projects" class="section">
       <div class="container">
         <header class="section-header reveal">
-          <h2>Projets</h2>
-          <p>Des terrains d’expérimentation pour apprendre, itérer et partager.</p>
+          <h2><span data-lang="fr">Projets</span><span data-lang="en">Projects</span></h2>
+          <p data-lang="fr">Des terrains d’expérimentation pour apprendre, itérer et partager.</p>
+          <p data-lang="en">Playgrounds to learn, iterate and share.</p>
         </header>
         <div class="grid project-grid">
           <article class="card reveal">
             <header>
               <h3>Piru</h3>
-              <p class="card-tag">Apprentissage du vocabulaire</p>
+              <p class="card-tag"><span data-lang="fr">Apprentissage du vocabulaire</span><span data-lang="en">Vocabulary learning</span></p>
             </header>
-            <p>Flashcards, répétition espacée et micro-interactions pour progresser chaque jour.</p>
-            <a class="btn inline" href="https://www.piru.fr/" target="_blank" rel="noopener">Visiter Piru</a>
+            <p data-lang="fr">Flashcards, répétition espacée et micro-interactions pour progresser chaque jour.</p>
+            <p data-lang="en">Flashcards, spaced repetition and micro-interactions to improve every day.</p>
+            <a class="btn inline" href="https://www.piru.fr/" target="_blank" rel="noopener">
+              <span data-lang="fr">Visiter Piru</span>
+              <span data-lang="en">Visit Piru</span>
+            </a>
           </article>
           <article class="card reveal">
             <header>
               <h3>Dictianary</h3>
-              <p class="card-tag">Jeu sur les définitions</p>
+              <p class="card-tag"><span data-lang="fr">Jeu sur les définitions</span><span data-lang="en">Definitions playground</span></p>
             </header>
-            <p>Exploration du sens des mots et expériences UX autour du dictionnaire.</p>
-            <a class="btn inline" href="/home">Découvrir Dictianary</a>
+            <p data-lang="fr">Exploration du sens des mots et expériences UX autour du dictionnaire.</p>
+            <p data-lang="en">Exploring meaning and UX around dictionaries.</p>
+            <a class="btn inline" href="/home">
+              <span data-lang="fr">Découvrir Dictianary</span>
+              <span data-lang="en">Explore Dictianary</span>
+            </a>
           </article>
           <article class="card reveal">
             <header>
               <h3>Autoapply</h3>
-              <p class="card-tag">Agents &amp; automatisation</p>
+              <p class="card-tag"><span data-lang="fr">Agents &amp; automatisation</span><span data-lang="en">Agents &amp; automation</span></p>
             </header>
-            <p>Prototype d’agent qui prépare et envoie des candidatures à partir de mon profil.</p>
-            <a class="btn inline" href="mailto:felixrevert@gmail.com?subject=Demo%20Autoapply">Demander la démo</a>
+            <p data-lang="fr">Prototype d’agent qui prépare et envoie des candidatures à partir de mon profil.</p>
+            <p data-lang="en">Agent prototype that prepares and submits applications using my profile.</p>
+            <a class="btn inline" href="mailto:felixrevert@gmail.com?subject=Demo%20Autoapply">
+              <span data-lang="fr">Demander la démo</span>
+              <span data-lang="en">Request the demo</span>
+            </a>
+          </article>
+          <article class="card reveal">
+            <header>
+              <h3>Chatbot demo</h3>
+              <p class="card-tag"><span data-lang="fr">Conversation IA</span><span data-lang="en">AI conversation</span></p>
+            </header>
+            <p data-lang="fr">Expérimentation d’assistant métier branché sur MCP pour workflows réels.</p>
+            <p data-lang="en">Experimenting with an MCP-powered assistant for real workflows.</p>
+            <a class="btn inline" href="mailto:felixrevert@gmail.com?subject=Chatbot%20demo">
+              <span data-lang="fr">Voir le chatbot</span>
+              <span data-lang="en">See the chatbot</span>
+            </a>
+          </article>
+          <article class="card reveal">
+            <header>
+              <h3>Collaborative Filtering</h3>
+              <p class="card-tag"><span data-lang="fr">Recommandation</span><span data-lang="en">Recommendation</span></p>
+            </header>
+            <p data-lang="fr">Exploration d’algorithmes de filtrage collaboratif pour recommandations personnalisées.</p>
+            <p data-lang="en">Exploring collaborative filtering algorithms for personalised recommendations.</p>
+            <a class="btn inline" href="mailto:felixrevert@gmail.com?subject=Collaborative%20Filtering">
+              <span data-lang="fr">Ouvrir le projet</span>
+              <span data-lang="en">Open the project</span>
+            </a>
           </article>
           <article class="card reveal">
             <header>
@@ -257,34 +361,111 @@
         <div class="section-cta reveal">
           <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Projet%20Produit%20x%20IA">Me proposer un projet</a>
         </div>
+        <div class="section-cta reveal">
+          <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Projet%20Produit%20x%20IA">
+            <span data-lang="fr">Me proposer un projet</span>
+            <span data-lang="en">Propose a project</span>
+          </a>
+        </div>
       </div>
     </section>
 
     <section id="talks" class="section section-alt">
       <div class="container">
         <header class="section-header reveal">
-          <h2>Talks</h2>
-          <p>Des interventions pour partager des retours d’expérience Produit x IA.</p>
+          <h2><span data-lang="fr">Talks</span><span data-lang="en">Talks</span></h2>
+          <p data-lang="fr">Des interventions pour partager des retours d’expérience Produit x IA.</p>
+          <p data-lang="en">Talks to share Product x AI lessons learned.</p>
         </header>
         <div class="timeline">
           <article class="timeline-item reveal">
-            <h3>Créer avec l’IA (2025)</h3>
-            <p>
-              Présentation pour FrenchProduit Sud-Ouest — <a href="https://www.meetup.com/fr-FR/frenchproduit-sudouest/events/305513027" target="_blank" rel="noopener">voir l’évènement</a> —
-              <a href="https://docs.google.com/presentation/d/1cIo7LiB3hjVq_8vWAd_UdHgWiLqnAuP4YXoDHDVXuV8/edit?usp=sharing" target="_blank" rel="noopener">voir les slides</a>.
-            </p>
+            <h3><span data-lang="fr">Créer avec l’IA (2025)</span><span data-lang="en">Creating with AI (2025)</span></h3>
+            <p data-lang="fr">Présentation pour FrenchProduit Sud-Ouest — <a href="https://www.meetup.com/fr-FR/frenchproduit-sudouest/events/305513027" target="_blank" rel="noopener">voir l’évènement</a> — <a href="https://docs.google.com/presentation/d/1cIo7LiB3hjVq_8vWAd_UdHgWiLqnAuP4YXoDHDVXuV8/edit?usp=sharing" target="_blank" rel="noopener">voir les slides</a>.</p>
+            <p data-lang="en">Talk for FrenchProduit Sud-Ouest — <a href="https://www.meetup.com/fr-FR/frenchproduit-sudouest/events/305513027" target="_blank" rel="noopener">event page</a> — <a href="https://docs.google.com/presentation/d/1cIo7LiB3hjVq_8vWAd_UdHgWiLqnAuP4YXoDHDVXuV8/edit?usp=sharing" target="_blank" rel="noopener">slides</a>.</p>
           </article>
           <article class="timeline-item reveal">
-            <h3>Meetup Machine Learning Hong Kong (2020)</h3>
-            <p>
-              Partage autour de cas ML en Asie — <a href="https://docs.google.com/presentation/d/17lUZLEIC0Mh5xVJsmbNBo-5_XzovpXlfiJ301LQYV_E/edit?usp=sharing" target="_blank" rel="noopener">slides 2020</a>.
-            </p>
+            <h3><span data-lang="fr">Meetup Machine Learning Hong Kong (2020)</span><span data-lang="en">Machine Learning Meetup Hong Kong (2020)</span></h3>
+            <p data-lang="fr">Partage autour de cas ML en Asie — <a href="https://docs.google.com/presentation/d/17lUZLEIC0Mh5xVJsmbNBo-5_XzovpXlfiJ301LQYV_E/edit?usp=sharing" target="_blank" rel="noopener">slides 2020</a>.</p>
+            <p data-lang="en">Shared ML case studies from Asia — <a href="https://docs.google.com/presentation/d/17lUZLEIC0Mh5xVJsmbNBo-5_XzovpXlfiJ301LQYV_E/edit?usp=sharing" target="_blank" rel="noopener">2020 slides</a>.</p>
           </article>
           <article class="timeline-item reveal">
-            <h3>Meetup Machine Learning Hong Kong (2019)</h3>
-            <p>
-              Retour sur SmartSubs et DataRobot — <a href="https://docs.google.com/presentation/d/1N5Ulj9Pefa1R92BJxwe42S2Y-0Z9l06dJe7DPRzPpn8/edit?usp=sharing" target="_blank" rel="noopener">slides 2019</a>.
+            <h3><span data-lang="fr">Meetup Machine Learning Hong Kong (2019)</span><span data-lang="en">Machine Learning Meetup Hong Kong (2019)</span></h3>
+            <p data-lang="fr">Retour sur SmartSubs et DataRobot — <a href="https://docs.google.com/presentation/d/1N5Ulj9Pefa1R92BJxwe42S2Y-0Z9l06dJe7DPRzPpn8/edit?usp=sharing" target="_blank" rel="noopener">slides 2019</a>.</p>
+            <p data-lang="en">Insights from SmartSubs and DataRobot — <a href="https://docs.google.com/presentation/d/1N5Ulj9Pefa1R92BJxwe42S2Y-0Z9l06dJe7DPRzPpn8/edit?usp=sharing" target="_blank" rel="noopener">2019 slides</a>.</p>
+          </article>
+          <article class="timeline-item reveal">
+            <h3><span data-lang="fr">APAC EHR 2019</span><span data-lang="en">APAC EHR 2019</span></h3>
+            <p data-lang="fr">Intervention sur la donnée santé — photo ci-dessous.</p>
+            <p data-lang="en">Spoke about healthcare data — see the photo below.</p>
+          </article>
+          <figure class="media-thumb reveal">
+            <img src="pictures/APAC-EHR-2019.jpg" alt="Félix Revert intervenant à APAC EHR 2019">
+          </figure>
+          <figure class="media-thumb reveal">
+            <img src="pictures/DBS-talk.jpg" alt="Talk de Félix Revert au DBS Executive Demo Day 2019">
+          </figure>
+        </div>
+        <div class="section-cta reveal">
+          <a class="btn ghost" href="mailto:felixrevert@gmail.com?subject=Invitation%20talk">
+            <span data-lang="fr">Me proposer d’intervenir</span>
+            <span data-lang="en">Invite me to speak</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="articles" class="section">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2><span data-lang="fr">Articles</span><span data-lang="en">Articles</span></h2>
+          <p data-lang="fr">J’écris sur le produit, le machine learning et les mathématiques. Cela fait trois ans que je n’ai pas publié : il est temps de m’y remettre.</p>
+          <p data-lang="en">I write about product, machine learning and mathematics. It’s been three years since my last article — time to get back to it.</p>
+        </header>
+        <div class="articles-panel reveal">
+          <p data-lang="fr">Retrouvez mes articles passés sur Medium et dites-moi quels sujets vous aimeriez lire ensuite.</p>
+          <p data-lang="en">Browse my past Medium articles and tell me what you’d like to read next.</p>
+          <a class="btn primary" href="https://medium.com/@FelixRvrt" target="_blank" rel="noopener">
+            <span data-lang="fr">Lire sur Medium</span>
+            <span data-lang="en">Read on Medium</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="training" class="section section-alt">
+      <div class="container">
+        <header class="section-header reveal">
+          <h2><span data-lang="fr">Training</span><span data-lang="en">Training</span></h2>
+          <p data-lang="fr">Former des équipes produit &amp; data pour accélérer leurs projets.</p>
+          <p data-lang="en">Training product &amp; data teams to accelerate their projects.</p>
+        </header>
+        <div class="training-grid">
+          <article class="card reveal">
+            <h3><span data-lang="fr">Le Wagon · 2025</span><span data-lang="en">Le Wagon · 2025</span></h3>
+            <p data-lang="fr">Enseignement IA pour les cohortes B2B &amp; B2C.</p>
+            <p data-lang="en">AI teaching for B2B &amp; B2C cohorts.</p>
+            <img src="pictures/Training-exec-IA.JPG" alt="Formation exécutive sur l’IA">
+          </article>
+          <article class="card reveal">
+            <h3><span data-lang="fr">Crash course Machine Learning · 2020</span><span data-lang="en">Machine Learning crash course · 2020</span></h3>
+            <p data-lang="fr">
+              Supports pour comprendre et pratiquer le ML :
+              <a href="https://docs.google.com/presentation/d/1pljIWQxsMhQaT6tCvTTVq3cQdPEamAFZdNJ-PYoFK7s/edit?usp=drive_link" target="_blank" rel="noopener">intro</a>,
+              <a href="https://docs.google.com/presentation/d/1Lu_fT7_9krugTs_0kw2HAq7Jmtvk9CAWhRkNgA6a264/edit?usp=drive_link" target="_blank" rel="noopener">atelier Python</a>,
+              <a href="https://docs.google.com/presentation/d/1LhqQXCzrfSulkWofvQ3V2ynr0NvlGagjMEQlbZjVxYk/edit?usp=drive_link" target="_blank" rel="noopener">évaluation</a>,
+              <a href="https://docs.google.com/presentation/d/1YbS8APbHbPRUwkDiDEoL6S_2ew8ZTl_1LlKw68mukfw/edit?usp=drive_link" target="_blank" rel="noopener">cas pratiques</a>.
             </p>
+            <p data-lang="en">
+              Materials to understand and practise ML:
+              <a href="https://docs.google.com/presentation/d/1pljIWQxsMhQaT6tCvTTVq3cQdPEamAFZdNJ-PYoFK7s/edit?usp=drive_link" target="_blank" rel="noopener">intro</a>,
+              <a href="https://docs.google.com/presentation/d/1Lu_fT7_9krugTs_0kw2HAq7Jmtvk9CAWhRkNgA6a264/edit?usp=drive_link" target="_blank" rel="noopener">Python workshop</a>,
+              <a href="https://docs.google.com/presentation/d/1LhqQXCzrfSulkWofvQ3V2ynr0NvlGagjMEQlbZjVxYk/edit?usp=drive_link" target="_blank" rel="noopener">assessment</a>,
+              <a href="https://docs.google.com/presentation/d/1YbS8APbHbPRUwkDiDEoL6S_2ew8ZTl_1LlKw68mukfw/edit?usp=drive_link" target="_blank" rel="noopener">case studies</a>.
+            </p>
+            <div class="training-media">
+              <img src="pictures/Training-Python-ML.jpg" alt="Formation Python Machine Learning">
+              <img src="pictures/Training-X-HEC-Python-ML.JPG" alt="Formation Python ML avec HEC et Polytechnique">
+            </div>
           </article>
           <article class="timeline-item reveal">
             <h3>APAC EHR 2019</h3>
@@ -302,53 +483,11 @@
         <div class="section-cta reveal">
           <a class="btn ghost" href="mailto:felixrevert@gmail.com?subject=Invitation%20talk">Me proposer d’intervenir</a>
         </div>
-      </div>
-    </section>
-
-    <section id="articles" class="section">
-      <div class="container">
-        <header class="section-header reveal">
-          <h2>Articles</h2>
-          <p>J’écris sur le produit, le machine learning et les mathématiques. Cela fait trois ans que je n’ai pas publié : il est temps de m’y remettre.</p>
-        </header>
-        <div class="articles-panel reveal">
-          <p>
-            Retrouver mes articles passés sur Medium et dites-moi quels sujets vous aimeriez lire ensuite.
-          </p>
-          <a class="btn primary" href="https://medium.com/@FelixRvrt" target="_blank" rel="noopener">Lire sur Medium</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="training" class="section section-alt">
-      <div class="container">
-        <header class="section-header reveal">
-          <h2>Training</h2>
-          <p>Former des équipes produit &amp; data pour accélérer leurs projets.</p>
-        </header>
-        <div class="training-grid">
-          <article class="card reveal">
-            <h3>Le Wagon · 2025</h3>
-            <p>Enseignement IA pour les cohortes B2B &amp; B2C.</p>
-            <img src="pictures/Training-exec-IA.JPG" alt="Formation exécutive sur l’IA">
-          </article>
-          <article class="card reveal">
-            <h3>Crash course Machine Learning · 2020</h3>
-            <p>
-              Supports pour comprendre et pratiquer le ML :
-              <a href="https://docs.google.com/presentation/d/1pljIWQxsMhQaT6tCvTTVq3cQdPEamAFZdNJ-PYoFK7s/edit?usp=drive_link" target="_blank" rel="noopener">intro</a>,
-              <a href="https://docs.google.com/presentation/d/1Lu_fT7_9krugTs_0kw2HAq7Jmtvk9CAWhRkNgA6a264/edit?usp=drive_link" target="_blank" rel="noopener">atelier Python</a>,
-              <a href="https://docs.google.com/presentation/d/1LhqQXCzrfSulkWofvQ3V2ynr0NvlGagjMEQlbZjVxYk/edit?usp=drive_link" target="_blank" rel="noopener">évaluation</a>,
-              <a href="https://docs.google.com/presentation/d/1YbS8APbHbPRUwkDiDEoL6S_2ew8ZTl_1LlKw68mukfw/edit?usp=drive_link" target="_blank" rel="noopener">cas pratiques</a>.
-            </p>
-            <div class="training-media">
-              <img src="pictures/Training-Python-ML.jpg" alt="Formation Python Machine Learning">
-              <img src="pictures/Training-X-HEC-Python-ML.JPG" alt="Formation Python ML avec HEC et Polytechnique">
-            </div>
-          </article>
-        </div>
         <div class="section-cta reveal">
-          <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Organisation%20formation">Me demander de vous former</a>
+          <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Organisation%20formation">
+            <span data-lang="fr">Me demander de vous former</span>
+            <span data-lang="en">Request a training</span>
+          </a>
         </div>
       </div>
     </section>
@@ -356,19 +495,23 @@
     <section id="chess" class="section">
       <div class="container">
         <header class="section-header reveal">
-          <h2>Chess</h2>
-          <p>Pourquoi j’adore les échecs et comment cela nourrit ma pratique produit.</p>
+          <h2><span data-lang="fr">Chess</span><span data-lang="en">Chess</span></h2>
+          <p data-lang="fr">Pourquoi j’adore les échecs et comment cela nourrit ma pratique produit.</p>
+          <p data-lang="en">Why I love chess and how it shapes my product work.</p>
         </header>
         <div class="chess-content">
           <div class="chess-text reveal">
-            <p>
-              Joueur licencié FIDE (<a href="https://ratings.fide.com/profile/653009649" target="_blank" rel="noopener">profil</a>),
-              j’ai la chance d’avoir été coaché par Sébastien Mazé (équipe de France) et de jouer en équipe première du club Caïssa.
-              En tournois et événements amicaux, j’ai affronté Laurent Fressinet, Matthieu Cornette, Étienne Bacrot et Thibault Fantinel.
+            <p data-lang="fr">
+              Joueur licencié FIDE (<a href="https://ratings.fide.com/profile/653009649" target="_blank" rel="noopener">profil</a>), j’ai eu la chance d’apprendre auprès de <a href="https://ratings.fide.com/profile/613762" target="_blank" rel="noopener">Sébastien Mazé</a> et de jouer en équipe #1 du club Caïssa. En tournois et événements amicaux, j’ai affronté <a href="https://ratings.fide.com/profile/608742" target="_blank" rel="noopener">Laurent Fressinet</a>, <a href="https://ratings.fide.com/profile/620084" target="_blank" rel="noopener">Matthieu Cornette</a>, <a href="https://ratings.fide.com/profile/605506" target="_blank" rel="noopener">Étienne Bacrot</a> et <a href="https://ratings.fide.com/profile/663395" target="_blank" rel="noopener">Thibault Fantinel</a>.
             </p>
-            <p>
-              Ma plus belle victoire récente : contre René (2168) au championnat d’Île-de-France 2024 (ronde 3). Une partie de 4h,
-              mal engagée, retournée grâce à un grand roque sacrifiant un pion puis un sacrifice de cavalier et de tour.
+            <p data-lang="en">
+              I’m a FIDE-rated player (<a href="https://ratings.fide.com/profile/653009649" target="_blank" rel="noopener">profile</a>), trained with <a href="https://ratings.fide.com/profile/613762" target="_blank" rel="noopener">Sébastien Mazé</a> and playing for Caïssa’s first team. In tournaments and friendly events I’ve faced <a href="https://ratings.fide.com/profile/608742" target="_blank" rel="noopener">Laurent Fressinet</a>, <a href="https://ratings.fide.com/profile/620084" target="_blank" rel="noopener">Matthieu Cornette</a>, <a href="https://ratings.fide.com/profile/605506" target="_blank" rel="noopener">Étienne Bacrot</a> and <a href="https://ratings.fide.com/profile/663395" target="_blank" rel="noopener">Thibault Fantinel</a>.
+            </p>
+            <p data-lang="fr">
+              Ma plus belle victoire récente : contre René (2168) au championnat d’Île-de-France 2024 (ronde 3). Partie de 4h, mal engagée, retournée grâce à un grand roque sacrifiant un pion puis un sacrifice de cavalier et de tour.
+            </p>
+            <p data-lang="en">
+              My favourite recent win: against René (2168) in round 3 of the 2024 Île-de-France championship. Four hours of play, a rough start and a turnaround with a long castle pawn sacrifice, then knight and rook sacrifices.
             </p>
           </div>
           <div class="chess-board reveal">
@@ -383,13 +526,18 @@
         <div class="chess-gallery">
           <figure class="media-thumb reveal">
             <img src="pictures/Chess 1.JPG" alt="Félix Revert jouant au tournoi du club">
+            <figcaption><span data-lang="fr">Tournoi interne du club Caïssa</span><span data-lang="en">Caïssa internal club tournament</span></figcaption>
           </figure>
           <figure class="media-thumb reveal">
             <img src="pictures/Chess 2.png" alt="Félix Revert à l’Open n°1 du championnat de France 2024">
+            <figcaption><span data-lang="fr">Open n°1 du championnat de France 2024</span><span data-lang="en">French championship Open #1, 2024</span></figcaption>
           </figure>
         </div>
         <div class="section-cta reveal">
-          <a class="btn ghost" href="mailto:felixrevert@gmail.com?subject=Partie%20d%27%C3%A9checs">Me proposer une partie</a>
+          <a class="btn ghost" href="https://www.chess.com/member/flxrvrt" target="_blank" rel="noopener">
+            <span data-lang="fr">Me défier sur Chess.com</span>
+            <span data-lang="en">Challenge me on Chess.com</span>
+          </a>
         </div>
       </div>
     </section>
@@ -397,19 +545,28 @@
     <section id="kitesurf" class="section section-alt">
       <div class="container">
         <header class="section-header reveal">
-          <h2>Kitesurf</h2>
-          <p>Un équilibre entre adrénaline, lecture du vent et respect de l’environnement.</p>
+          <h2><span data-lang="fr">Kitesurf</span><span data-lang="en">Kitesurf</span></h2>
+          <p data-lang="fr">Un équilibre entre adrénaline, lecture du vent et respect de l’environnement.</p>
+          <p data-lang="en">Balancing adrenaline, reading the wind and respecting the environment.</p>
         </header>
         <div class="kitesurf-grid">
           <div class="kitesurf-text reveal">
-            <h3>Mon équipement</h3>
+            <h3><span data-lang="fr">Mon équipement</span><span data-lang="en">My gear</span></h3>
             <ul>
               <li>Duotone Mono 15m (2019)</li>
-              <li>Duotone Rebel 13m (2019) — mon aile préférée</li>
-              <li>Slingshot RPM 12m (2010) — ma première aile</li>
+              <li>Duotone Rebel 13m (2019) — <span data-lang="fr">mon aile préférée</span><span data-lang="en">my favourite kite</span></li>
+              <li>Slingshot RPM 12m (2010) — <span data-lang="fr">ma première aile</span><span data-lang="en">my first kite</span></li>
               <li>North Dice 10m (2013)</li>
               <li>Duotone Neo 8m (2019)</li>
               <li>Duotone Neo 6m (2019)</li>
+            </ul>
+            <h3><span data-lang="fr">Spots où j’ai ridé</span><span data-lang="en">Spots I’ve ridden</span></h3>
+            <ul>
+              <li>Hong Kong, Lantau Island</li>
+              <li>Vietnam, Mỹ Hòa</li>
+              <li>Îles Canaries, El Médano</li>
+              <li>Grèce, Prasonisi</li>
+              <li>France, <span data-lang="fr">un peu partout</span><span data-lang="en">almost everywhere</span></li>
             </ul>
             <h3>Spots où j’ai ridé</h3>
             <ul>
@@ -428,9 +585,20 @@
               <img src="pictures/kitesurf 2.jpg" alt="Kitesurf à Prasonisi">
             </figure>
           </div>
+          <div class="kitesurf-gallery">
+            <figure class="media-thumb reveal">
+              <img src="pictures/kitesurf 1.png" alt="Session de kitesurf">
+            </figure>
+            <figure class="media-thumb reveal">
+              <img src="pictures/kitesurf 2.jpg" alt="Kitesurf à Prasonisi">
+            </figure>
+          </div>
         </div>
         <div class="section-cta reveal">
-          <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Session%20kitesurf">Me proposer une session</a>
+          <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Session%20kitesurf">
+            <span data-lang="fr">Me proposer une session</span>
+            <span data-lang="en">Suggest a session</span>
+          </a>
         </div>
       </div>
     </section>
@@ -438,18 +606,30 @@
     <section id="environment" class="section">
       <div class="container">
         <header class="section-header reveal">
-          <h2>Environment</h2>
-          <p>Faciliter la prise de conscience climatique et passer à l’action.</p>
+          <h2><span data-lang="fr">Environment</span><span data-lang="en">Environment</span></h2>
+          <p data-lang="fr">Faciliter la prise de conscience climatique et passer à l’action.</p>
+          <p data-lang="en">Raising climate awareness and driving action.</p>
         </header>
         <div class="environment-grid">
           <div class="environment-text reveal">
-            <p>
-              Je suis facilitateur de la Fresque du Climat et j’ai formé près d’une centaine de collaborateur·rice·s aux enjeux
-              climatiques. J’aime animer des ateliers pour aligner équipes produit, tech et business sur les ordres de grandeur.
-            </p>
-            <p>
-              En savoir plus sur la Fresque : <a href="https://fresqueduclimat.org/" target="_blank" rel="noopener">fresqueduclimat.org</a>.
-            </p>
+            <p data-lang="fr">Je suis facilitateur de la Fresque du Climat et j’ai formé près d’une centaine de collaborateur·rice·s aux enjeux climatiques. J’aime animer des ateliers pour aligner équipes produit, tech et business sur les ordres de grandeur.</p>
+            <p data-lang="en">I facilitate the “Fresque du Climat” workshop and have trained close to a hundred employees on climate issues. I love aligning product, tech and business teams on the right orders of magnitude.</p>
+            <p data-lang="fr">En savoir plus sur la Fresque : <a href="https://fresqueduclimat.org/" target="_blank" rel="noopener">fresqueduclimat.org</a>.</p>
+            <p data-lang="en">Learn more about the workshop: <a href="https://fresqueduclimat.org/" target="_blank" rel="noopener">fresqueduclimat.org</a>.</p>
+          </div>
+          <div class="environment-gallery">
+            <figure class="media-thumb reveal">
+              <img src="pictures/Climate Fresk 2.png" alt="Atelier Fresque du Climat 1">
+            </figure>
+            <figure class="media-thumb reveal">
+              <img src="pictures/Climate Fresk 3.png" alt="Atelier Fresque du Climat 2">
+            </figure>
+            <figure class="media-thumb reveal">
+              <img src="pictures/Climate Fresk 4.png" alt="Atelier Fresque du Climat 3">
+            </figure>
+            <figure class="media-thumb reveal">
+              <img src="pictures/Climate Fresk 5.png" alt="Atelier Fresque du Climat 4">
+            </figure>
           </div>
           <div class="environment-gallery">
             <figure class="media-thumb reveal">
@@ -469,6 +649,12 @@
         <div class="section-cta reveal">
           <a class="btn ghost" href="mailto:felixrevert@gmail.com?subject=Organisons%20une%20Fresque">Organisons une Fresque</a>
         </div>
+        <div class="section-cta reveal">
+          <a class="btn ghost" href="mailto:felixrevert@gmail.com?subject=Organisons%20une%20Fresque">
+            <span data-lang="fr">Organisons une Fresque</span>
+            <span data-lang="en">Let’s run a workshop</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -477,7 +663,7 @@
     <div class="container footer-inner">
       <div>
         <p>&copy; <span id="year"></span> Félix Revert</p>
-        <p class="footer-note">Portfolio interactif Produit x IA.</p>
+        <p class="footer-note"><span data-lang="fr">Portfolio interactif Produit x IA.</span><span data-lang="en">Interactive Product x AI portfolio.</span></p>
       </div>
       <div class="footer-links">
         <a href="mailto:felixrevert@gmail.com">felixrevert@gmail.com</a>

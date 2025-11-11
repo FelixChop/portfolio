@@ -3,6 +3,7 @@
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".nav");
   const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
+  const langToggle = document.querySelector(".lang-toggle");
   const yearSpan = document.getElementById("year");
   const revealElements = document.querySelectorAll(".reveal");
 
@@ -50,6 +51,44 @@
     yearSpan.textContent = new Date().getFullYear();
   }
 
+  // Language toggle
+  function setLanguage(lang) {
+    const supported = ["fr", "en"];
+    const targetLang = supported.includes(lang) ? lang : "fr";
+    document.body.classList.remove("lang-fr", "lang-en");
+    document.body.classList.add(`lang-${targetLang}`);
+    document.documentElement.lang = targetLang;
+    if (langToggle) {
+      const label = targetLang === "fr" ? "Passer en anglais" : "Switch to French";
+      langToggle.setAttribute("aria-label", label);
+      langToggle.setAttribute("aria-pressed", targetLang === "en" ? "true" : "false");
+    }
+    try {
+      window.localStorage.setItem("preferredLang", targetLang);
+    } catch (error) {
+      // ignore storage errors
+    }
+  }
+
+  if (langToggle) {
+    langToggle.addEventListener("click", () => {
+      const nextLang = document.body.classList.contains("lang-fr") ? "en" : "fr";
+      setLanguage(nextLang);
+    });
+
+    let storedLang;
+    try {
+      storedLang = window.localStorage.getItem("preferredLang");
+    } catch (error) {
+      storedLang = null;
+    }
+    if (storedLang && storedLang !== "fr") {
+      setLanguage(storedLang);
+    } else {
+      setLanguage("fr");
+    }
+  }
+
   // Chess PGN viewer
   function initChessViewer() {
     const container = document.getElementById("chess-game");
@@ -62,7 +101,7 @@
       pgn,
       theme: "wikipedia",
       pieceStyle: "merida",
-      boardSize: "large",
+      boardSize: 520,
       showCoordinates: true,
       locale: "fr",
       showAnnotations: true,
