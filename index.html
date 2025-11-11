@@ -33,10 +33,10 @@
         </ul>
       </nav>
 
-      <button class="lang-toggle" type="button" aria-label="Passer en anglais">
-        <span data-lang="fr">Français / Anglais</span>
-        <span data-lang="en">English / French</span>
-      </button>
+      <div class="lang-toggle" role="group" aria-label="Language toggle">
+        <button type="button" class="lang-option is-active" data-lang-target="fr" aria-pressed="true">FR</button>
+        <button type="button" class="lang-option" data-lang-target="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
 
@@ -143,9 +143,6 @@
             <span data-lang="fr">Travailler avec moi</span>
             <span data-lang="en">Work with me</span>
           </a>
-        </div>
-        <div class="section-cta reveal">
-          <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Vos%20cas%20Produit%20x%20IA">Travailler avec moi</a>
         </div>
       </div>
     </section>
@@ -255,10 +252,10 @@
           <section class="cv-group reveal">
             <h3><span data-lang="fr">Études supérieures</span><span data-lang="en">Higher education</span></h3>
             <div class="cv-education">
-              <p data-lang="fr"><strong>ENSAE ParisTech</strong> · 2010 – 2014 · Dernière année en échange à l’Université Humboldt de Berlin (Allemagne).</p>
-              <p data-lang="en"><strong>ENSAE ParisTech</strong> · 2010 – 2014 · Final year exchange at Humboldt University of Berlin (Germany).</p>
-              <p data-lang="fr"><strong>Université Humboldt de Berlin</strong> · 2013 – 2014 · Master en échange.</p>
-              <p data-lang="en"><strong>Humboldt University of Berlin</strong> · 2013 – 2014 · Exchange master year.</p>
+              <p data-lang="fr"><strong><a href="https://www.ensae.fr/" target="_blank" rel="noopener">ENSAE ParisTech</a></strong> · 2010 – 2014 · Dernière année en échange à l’Université Humboldt de Berlin (Allemagne).</p>
+              <p data-lang="en"><strong><a href="https://www.ensae.fr/" target="_blank" rel="noopener">ENSAE ParisTech</a></strong> · 2010 – 2014 · Final year exchange at Humboldt University of Berlin (Germany).</p>
+              <p data-lang="fr"><strong><a href="https://www.hu-berlin.de/en" target="_blank" rel="noopener">Université Humboldt de Berlin</a></strong> · 2013 – 2014 · Master en échange.</p>
+              <p data-lang="en"><strong><a href="https://www.hu-berlin.de/en" target="_blank" rel="noopener">Humboldt University of Berlin</a></strong> · 2013 – 2014 · Exchange master year.</p>
               <p data-lang="fr"><strong>Classes préparatoires MPSI / MP*</strong> · 2008 – 2010.</p>
               <p data-lang="en"><strong>Preparatory classes MPSI / MP*</strong> · 2008 – 2010.</p>
             </div>
@@ -341,25 +338,6 @@
               <span data-lang="en">Open the project</span>
             </a>
           </article>
-          <article class="card reveal">
-            <header>
-              <h3>Chatbot demo</h3>
-              <p class="card-tag">Conversation IA</p>
-            </header>
-            <p>Expérimentation d’assistant métier branché sur MCP pour workflows réels.</p>
-            <a class="btn inline" href="mailto:felixrevert@gmail.com?subject=Chatbot%20demo">Voir le chatbot</a>
-          </article>
-          <article class="card reveal">
-            <header>
-              <h3>Collaborative Filtering</h3>
-              <p class="card-tag">Recommandation</p>
-            </header>
-            <p>Exploration d’algorithmes de filtrage collaboratif pour recommandations personnalisées.</p>
-            <a class="btn inline" href="mailto:felixrevert@gmail.com?subject=Collaborative%20Filtering">Ouvrir le projet</a>
-          </article>
-        </div>
-        <div class="section-cta reveal">
-          <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Projet%20Produit%20x%20IA">Me proposer un projet</a>
         </div>
         <div class="section-cta reveal">
           <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Projet%20Produit%20x%20IA">
@@ -398,10 +376,12 @@
             <p data-lang="fr">Intervention sur la donnée santé — photo ci-dessous.</p>
             <p data-lang="en">Spoke about healthcare data — see the photo below.</p>
           </article>
-          <figure class="media-thumb reveal">
+        </div>
+        <div class="timeline-gallery reveal">
+          <figure class="media-thumb">
             <img src="pictures/APAC-EHR-2019.jpg" alt="Félix Revert intervenant à APAC EHR 2019">
           </figure>
-          <figure class="media-thumb reveal">
+          <figure class="media-thumb">
             <img src="pictures/DBS-talk.jpg" alt="Talk de Félix Revert au DBS Executive Demo Day 2019">
           </figure>
         </div>
@@ -467,21 +447,6 @@
               <img src="pictures/Training-X-HEC-Python-ML.JPG" alt="Formation Python ML avec HEC et Polytechnique">
             </div>
           </article>
-          <article class="timeline-item reveal">
-            <h3>APAC EHR 2019</h3>
-            <p>
-              Intervention sur la donnée santé — photo <span class="media-inline">(ci-dessous)</span>.
-            </p>
-          </article>
-          <figure class="media-thumb reveal">
-            <img src="pictures/APAC-EHR-2019.jpg" alt="Félix Revert intervenant à APAC EHR 2019">
-          </figure>
-          <figure class="media-thumb reveal">
-            <img src="pictures/DBS-talk.jpg" alt="Talk de Félix Revert au DBS Executive Demo Day 2019">
-          </figure>
-        </div>
-        <div class="section-cta reveal">
-          <a class="btn ghost" href="mailto:felixrevert@gmail.com?subject=Invitation%20talk">Me proposer d’intervenir</a>
         </div>
         <div class="section-cta reveal">
           <a class="btn primary" href="mailto:felixrevert@gmail.com?subject=Organisation%20formation">
@@ -568,22 +533,6 @@
               <li>Grèce, Prasonisi</li>
               <li>France, <span data-lang="fr">un peu partout</span><span data-lang="en">almost everywhere</span></li>
             </ul>
-            <h3>Spots où j’ai ridé</h3>
-            <ul>
-              <li>Hong Kong, Lantau Island</li>
-              <li>Vietnam, Mỹ Hòa</li>
-              <li>Îles Canaries, El Médano</li>
-              <li>Grèce, Prasonisi</li>
-              <li>France, un peu partout</li>
-            </ul>
-          </div>
-          <div class="kitesurf-gallery">
-            <figure class="media-thumb reveal">
-              <img src="pictures/kitesurf 1.png" alt="Session de kitesurf">
-            </figure>
-            <figure class="media-thumb reveal">
-              <img src="pictures/kitesurf 2.jpg" alt="Kitesurf à Prasonisi">
-            </figure>
           </div>
           <div class="kitesurf-gallery">
             <figure class="media-thumb reveal">
@@ -631,23 +580,6 @@
               <img src="pictures/Climate Fresk 5.png" alt="Atelier Fresque du Climat 4">
             </figure>
           </div>
-          <div class="environment-gallery">
-            <figure class="media-thumb reveal">
-              <img src="pictures/Climate Fresk 2.png" alt="Atelier Fresque du Climat 1">
-            </figure>
-            <figure class="media-thumb reveal">
-              <img src="pictures/Climate Fresk 3.png" alt="Atelier Fresque du Climat 2">
-            </figure>
-            <figure class="media-thumb reveal">
-              <img src="pictures/Climate Fresk 4.png" alt="Atelier Fresque du Climat 3">
-            </figure>
-            <figure class="media-thumb reveal">
-              <img src="pictures/Climate Fresk 5.png" alt="Atelier Fresque du Climat 4">
-            </figure>
-          </div>
-        </div>
-        <div class="section-cta reveal">
-          <a class="btn ghost" href="mailto:felixrevert@gmail.com?subject=Organisons%20une%20Fresque">Organisons une Fresque</a>
         </div>
         <div class="section-cta reveal">
           <a class="btn ghost" href="mailto:felixrevert@gmail.com?subject=Organisons%20une%20Fresque">
