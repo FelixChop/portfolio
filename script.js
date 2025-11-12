@@ -402,3 +402,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// === Flip card : scroll + clic (clic prioritaire) ===
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.flip-card');
+
+  // 1) Gestion du clic + clavier => passe en mode manuel
+  cards.forEach(card => {
+    // Clic/tap
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+      card.dataset.manual = '1'; // le clic prend la main
+    });
+
+    // Accessibilité clavier (Enter/Espace)
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+        card.dataset.manual = '1';
+      }
+    });
+  });
+
+  // 2) Auto-flip au scroll (tant qu’on n’a pas cliqué)
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const card = entry.target;
+
+      // Si l’utilisateur·rice a cliqué, on ne touche plus à cette carte
+      if (card.dataset.manual === '1') return;
+
+      if (entry.isIntersecting) {
+        // Visible à 60% => on montre le verso
+        card.classList.add('flipped');
+      } else {
+        // Quand elle sort de l’écran => on revient au recto
+        card.classList.remove('flipped');
+      }
+    });
+  }, {
+    threshold: 0.9,          // ~90% visible
+    rootMargin: '0px 0px -10% 0px' // petit décalage vers le bas
+  });
+
+  cards.forEach(card => observer.observe(card));
+
+  // (optionnel) Si tu veux permettre de "rendre" la main au scroll :
+  // Shift+clic réactive l’auto (enlève le mode manuel)
+  document.addEventListener('click', (e) => {
+    const card = e.target.closest('.flip-card');
+    if (!card) return;
+    if (e.shiftKey) {
+      delete card.dataset.manual;
+    }
+  });
+});
