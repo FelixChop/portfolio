@@ -523,6 +523,11 @@ ul.expertise {
   gap: 1rem;
 }
 
+.cv-timeline-item .cv-item-header {
+  flex-direction: row-reverse; /* au cas où il s’applique */
+}
+
+
 .cv-item-role {
   margin: 0;
   font-weight: 600;
@@ -1084,24 +1089,60 @@ ul.expertise {
   margin-bottom: 0.5rem;
 }
 
-/* Colonne + barre verticale */
+/* Timeline: ligne et ancrage stables */
 .cv-timeline-list {
+  --timeline-x: 18px;               /* distance depuis le bord gauche du bloc */
+  --dot-size: 14px;                 /* diamètre du cercle */
+  --dot-ring: 3px;                  /* bordure du cercle */
+
   position: relative;
-  margin-top: 1.5rem;
-  margin-left: 1.5rem; /* décale la barre + cercles */
-  padding-left: 0;
+  padding-left: calc(var(--timeline-x) + var(--dot-size) + 14px); /* espace pour ligne+dot */
+  border-left: none;                /* on gère la ligne avec ::before */
 }
 
-/* Barre verticale continue */
 .cv-timeline-list::before {
   content: "";
   position: absolute;
+  left: var(--timeline-x);
   top: 0;
   bottom: 0;
-  left: 0;
   width: 2px;
-  background: rgba(148, 163, 184, 0.9);
+  background: rgba(37, 99, 235, 0.25);
 }
+
+/* Chaque entrée reste relative, mais le dot est recalé avec un offset NEGATIF
+   vers la gauche, donc il ne bouge plus même si on décale la card */
+.cv-timeline-item {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  /* IMPORTANT: pas de margin-left ici, on laisse la liste gérer l'espace */
+}
+
+.cv-timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 1.75rem; /* ajuste si besoin pour centrer verticalement */
+  left: calc(
+    -1 * var(--timeline-x) - var(--dot-size) / 2
+  ); /* ancre sur l’axe de la ligne */
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: #fff;
+  border: var(--dot-ring) solid var(--accent);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Logo déjà à droite : on garde. Juste un petit garde-fou mobile */
+@media (max-width: 720px) {
+  .cv-timeline-item {
+    padding-right: 100px; /* évite que le texte passe sous le logo */
+  }
+}
+
 
 /* Carte d'expérience */
 .cv-timeline-item {
@@ -1126,25 +1167,45 @@ ul.expertise {
   background: #f9fafb;
 }
 
-/* Logo en haut à droite, sans chevaucher le texte */
-.cv-logo {
-  position: absolute;
-  top: 1.1rem;
-  right: 1.4rem;
-  width: 90px;           /* largeur fixe */
-  height: 34px;          /* hauteur fixe */
+/* Contenu de la carte : logo à droite, texte à gauche */
+.cv-timeline-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.cv-timeline-item .cv-timeline-text {
+  flex: 1; /* le texte prend toute la largeur restante */
+}
+
+.cv-timeline-item .cv-logo {
+  order: 2; /* s’assure que le logo est à droite */
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(0,0,0,0.08);
 }
 
-.cv-logo img {
-  width: 80%;           /* occupe toujours le cadre */
-  height: 80%;
-  object-fit: contain;   /* garde les proportions sans déformation */
-  object-position: center;
-  display: block;
+.cv-timeline-item .cv-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
 }
+
 
 
 /* Texte : Job sur la 1ère ligne, entreprise + dates sur la 2e, contenu en dessous */
