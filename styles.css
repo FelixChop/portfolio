@@ -57,6 +57,21 @@ ul {
   padding-left: 1.4rem;
 }
 
+ul.expertise {
+  list-style-type: square; /* options: disc | circle | square | none */
+  padding-left: 1.5rem;
+}
+
+.keyword {
+  color: var(--accent);
+  font-weight: 600;
+}
+.expertise li {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+
 .container {
   width: 100%;
   max-width: 1180px;
@@ -335,6 +350,9 @@ ul {
   width: clamp(260px, 32vw, 380px);
   border-radius: 28px;
   box-shadow: var(--shadow);
+  /* width: 250px; taille par défaut sur grands écrans */
+  /* border-radius: 12px; */
+  transition: width 0.3s ease;
 }
 
 .hero-card {
@@ -351,12 +369,34 @@ ul {
 }
 
 .hero-card ul {
-  list-style: disc;
+  list-style: square;
   color: var(--muted);
 }
 
 .hero-card li {
   margin-bottom: 0.35rem;
+}
+
+
+.motto {
+  margin: 2rem 0;
+}
+.motto h3 {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+.motto blockquote {
+  border-left: 4px solid #6366f1;
+  background: #eef2ff;
+  padding: 0.75rem 1rem;
+  margin: 0 0 0.75rem 0;
+  font-style: italic;
+}
+.motto p {
+  color: #374151;
 }
 
 /* Cards & grids */
@@ -771,6 +811,10 @@ ul {
   #chess-game {
     min-height: 360px;
   }
+
+  .portrait img{
+    width: 70%;
+  }
 }
 
 
@@ -816,11 +860,6 @@ ul {
   object-fit: cover;
 }
 
-.environment-gallery {
-  display: grid;
-  gap: 1.5rem;
-}
-
 .environment-column {
   display: grid;
   gap: 1.5rem;
@@ -830,18 +869,19 @@ ul {
   margin: 0;
 }
 
-.environment-gallery img {
+.environment-gallery .media img {
+  max-width: 600px;       /* limite la largeur */
   width: 100%;
-  height: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  height: auto;           /* conserve le ratio naturel */
+  aspect-ratio: 16 / 9;   /* format paysage */
+  object-fit: cover;      /* recadre proprement */
+  margin: 0 auto;         /* centre l’image */
+  display: block;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 @media (min-width: 960px) {
-
-  .environment-gallery {
-    display: contents;
-  }
 
   .environment-column {
     display: grid;
@@ -951,6 +991,10 @@ ul {
     order: 3;
     align-self: flex-start;
   }
+
+  .portrait img{
+    width: 70%;
+  }
 }
 
 @media (max-width: 640px) {
@@ -982,4 +1026,160 @@ ul {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .portrait img{
+    width: 100%;
+  }
+}
+
+/* === CV en timelines verticales (style PDF) === */
+
+.cv-timelines {
+  display: grid;
+  gap: 2rem;
+}
+
+.cv-timeline-text ul {
+  color: var(--muted);
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.cv-timeline-text ul li::before {
+  content: "→ ";
+  color: var(--accent);
+  font-weight: 600;
+}
+
+
+
+/* Desktop : prod & data à gauche, enseignement puis études à droite */
+@media (min-width: 960px) {
+  .cv-timelines {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "prod teach"
+      "prod edu";
+  }
+
+  .cv-timeline:nth-child(1) { grid-area: prod; }   /* Expériences produit & data */
+  .cv-timeline:nth-child(2) { grid-area: teach; }  /* Expériences d’enseignement */
+  .cv-timeline:nth-child(3) { grid-area: edu; }    /* Études supérieures */
+}
+
+@media (max-width: 959.98px) {
+  .cv-timelines {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.cv-timeline {
+  background: transparent;
+}
+
+.cv-timeline h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Colonne + barre verticale */
+.cv-timeline-list {
+  position: relative;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem; /* décale la barre + cercles */
+  padding-left: 0;
+}
+
+/* Barre verticale continue */
+.cv-timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: rgba(148, 163, 184, 0.9);
+}
+
+/* Carte d'expérience */
+.cv-timeline-item {
+  position: relative;
+  margin-bottom: 1.6rem;
+  padding: 1.2rem 6.2rem 1.1rem 2.4rem; /* padding-left = place pour le cercle */
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* Cercle sur la barre (plus gros) */
+.cv-timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 1.4rem;
+  left: -0.7rem;             /* centre le cercle sur la barre (barre à 0, cercle de 1.4rem ⇒ -0.7rem) */
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 3px solid #111827;
+  background: #f9fafb;
+}
+
+/* Logo en haut à droite, sans chevaucher le texte */
+.cv-logo {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.4rem;
+  width: 90px;           /* largeur fixe */
+  height: 34px;          /* hauteur fixe */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-logo img {
+  width: 80%;           /* occupe toujours le cadre */
+  height: 80%;
+  object-fit: contain;   /* garde les proportions sans déformation */
+  object-position: center;
+  display: block;
+}
+
+
+/* Texte : Job sur la 1ère ligne, entreprise + dates sur la 2e, contenu en dessous */
+
+.cv-timeline-role {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #111827;
+}
+
+.cv-timeline-company {
+  margin: 0.3rem 0 0.35rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.cv-timeline-text {
+  display: block; /* important */
+}
+
+.cv-timeline-text p {
+  margin: 0.15rem 0;
+  line-height: 1.4;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.cv-timeline-text div {
+  margin: 0.15rem 0;
+  line-height: 1.4;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
