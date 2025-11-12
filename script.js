@@ -333,3 +333,72 @@
   }
 
 })();
+
+// === CV Timeline collapsible items — bouton circulaire centré en bas ===
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.cv-timeline-item');
+
+  items.forEach((item, idx) => {
+    // Le premier .cv-timeline-text contient le header (role, dates, etc.)
+    const headerBlock = item.querySelector(':scope > .cv-timeline-text');
+    let detailBlocks = [];
+
+    if (headerBlock) {
+      // Les détails sont à l'intérieur sous forme de sous-blocs .cv-timeline-text
+      detailBlocks = Array.from(headerBlock.querySelectorAll(':scope > .cv-timeline-text'));
+      if (detailBlocks.length === 0) {
+        // S'il n'y en a pas, on prend les suivants dans la carte
+        const siblings = Array.from(item.querySelectorAll(':scope > .cv-timeline-text')).filter(el => el !== headerBlock);
+        detailBlocks = siblings;
+      }
+    } else {
+      // Structure atypique : tout repliable
+      detailBlocks = Array.from(item.querySelectorAll(':scope > .cv-timeline-text'));
+    }
+
+    if (detailBlocks.length === 0) return;
+
+    // Conteneur repliable
+    const body = document.createElement('div');
+    body.className = 'cv-body';
+    body.id = `cv-body-${idx}`;
+    detailBlocks.forEach(node => body.appendChild(node));
+
+    // Bouton circulaire avec chevron SVG ↓
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'cv-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', body.id);
+
+    btn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    `;
+
+    // Place le corps repliable puis le bouton en bas
+    item.appendChild(body);
+    item.appendChild(btn);
+
+    // État initial fermé
+    item.classList.remove('is-open');
+
+    // Toggle ouverture/fermeture
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      item.classList.toggle('is-open', !open);
+
+      // Animation fluide
+      if (!open) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        requestAnimationFrame(() => { body.style.maxHeight = '0px'; });
+      }
+    });
+  });
+});

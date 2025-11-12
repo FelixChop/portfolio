@@ -570,16 +570,6 @@ ul.expertise {
   padding: 0.4rem;
 }
 
-.cv-summary-logo.cv-logo-missing img {
-  display: none;
-}
-
-.cv-logo-fallback {
-  line-height: 1.1;
-  display: block;
-  width: 100%;
-}
-
 .cv-item-meta {
   display: flex;
   flex-direction: column;
@@ -1027,50 +1017,20 @@ ul.expertise {
     padding: 2rem;
   }
 
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .portrait img{
-    width: 100%;
+  .footer {
+    padding: 2rem 0;
   }
 }
 
-/* === CV en timelines verticales (style PDF) === */
+/* ====== CV Timeline (v2) ====== */
 
-.cv-timelines {
-  display: grid;
-  gap: 2rem;
-}
-
-.cv-timeline-text ul {
-  color: var(--muted);
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.cv-timeline-text ul li::before {
-  content: "→ ";
-  color: var(--accent);
-  font-weight: 600;
-}
-
-
-
-/* Desktop : prod & data à gauche, enseignement puis études à droite */
 @media (min-width: 960px) {
   .cv-timelines {
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "prod teach"
-      "prod edu";
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: start;
   }
-
-  .cv-timeline:nth-child(1) { grid-area: prod; }   /* Expériences produit & data */
-  .cv-timeline:nth-child(2) { grid-area: teach; }  /* Expériences d’enseignement */
-  .cv-timeline:nth-child(3) { grid-area: edu; }    /* Études supérieures */
 }
 
 @media (max-width: 959.98px) {
@@ -1139,8 +1099,7 @@ ul.expertise {
 /* Logo déjà à droite : on garde. Juste un petit garde-fou mobile */
 @media (max-width: 720px) {
   .cv-timeline-item {
-    padding-right: 100px; /* évite que le texte passe sous le logo */
-  }
+    padding: 1.2rem 1.2rem 1.1rem 2.4rem; /* padding équilibré : plus de marge inutile à droite */  }
 }
 
 
@@ -1167,7 +1126,31 @@ ul.expertise {
   background: #f9fafb;
 }
 
-/* Contenu de la carte : logo à droite, texte à gauche */
+/* Barre verticale continue à gauche des cartes */
+.cv-timeline-list {
+  position: relative;
+  padding-left: 2.6rem;      /* espace pour la barre + cercle */
+}
+
+.cv-timeline-list::before {
+  content: "";
+  position: absolute;
+  left: 0;                   /* barre collée au bord gauche du container */
+  top: 0.6rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: rgba(37, 99, 235, 0.35);
+  border-radius: 2px;
+}
+
+/* Titre de la colonne ("Expériences produit & data" etc.) */
+.cv-timeline h3 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-size: 1.15rem;
+}
+
+/* Carte : layout interne (texte + logo à droite) */
 .cv-timeline-item {
   position: relative;
   display: flex;
@@ -1193,20 +1176,19 @@ ul.expertise {
   align-items: center;
   justify-content: center;
   background: white;
-  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 14px;  /* garde un carré, pas de bords très arrondis */
   overflow: hidden;
-  box-shadow: 0 0 6px rgba(0,0,0,0.08);
 }
 
+/* Logo : image bien contenue dans un carré */
 .cv-timeline-item .cv-logo img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-  aspect-ratio: 1 / 1;
+  object-fit: contain; /* carré + pas de déformation */
+  border-radius: 0;    /* pas d’arrondi de l’image elle-même */
 }
-
-
 
 /* Texte : Job sur la 1ère ligne, entreprise + dates sur la 2e, contenu en dessous */
 
@@ -1220,27 +1202,268 @@ ul.expertise {
 }
 
 .cv-timeline-company {
-  margin: 0.3rem 0 0.35rem;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  margin: 0.3rem 0 0.35rem 0;
   color: var(--muted);
+  font-size: 0.95rem;
 }
 
-.cv-timeline-text {
-  display: block; /* important */
-}
-
-.cv-timeline-text p {
-  margin: 0.15rem 0;
-  line-height: 1.4;
+.cv-timeline-period {
+  margin: 0;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
+.cv-timeline-text p,
+.cv-timeline-text ul,
 .cv-timeline-text div {
   margin: 0.15rem 0;
-  line-height: 1.4;
+  line-height: 1.6;
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+.cv-timeline-text ul li::before {
+  content: "→ ";
+  color: var(--accent);
+  font-weight: 600;
+}
+
+
+/* === Timeline alignment fix (2025-11-12) === */
+.cv-timeline-list {
+  --timeline-x: 18px;             /* position of the vertical line from the list's left edge */
+  --dot-size: 18px;               /* diameter of the dot */
+  --gutter: 14px;                 /* horizontal gap between the dot and the card */
+  position: relative;
+  padding-left: calc(var(--timeline-x) + (var(--dot-size) / 2) + var(--gutter));
+}
+
+.cv-timeline-list::before {
+  content: "";
+  position: absolute;
+  left: var(--timeline-x);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(37, 99, 235, 0.3);
+}
+
+.cv-timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 1.6rem; /* vertically centers the dot on the card header */
+  left: calc(-1 * (var(--dot-size) + var(--gutter))); /* anchors dot on the vertical line */
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 3px var(--bg-alt);
+  z-index: 2;
+}
+
+/* === Placement précis des 3 timelines (2 colonnes desktop) === */
+
+/* Mobile/tablette : 1 colonne (comportement inchangé) */
+@media (max-width: 959.98px) {
+  .cv-timelines {
+    display: block; /* empêche un héritage flex/grid précédent */
+  }
+}
+
+/* Desktop : 2 colonnes, avec Education sous Teaching */
+@media (min-width: 960px) {
+  .cv-timelines {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* 1) Expériences produit & data → colonne 1, rangée 1 */
+  .cv-timelines .cv-timeline:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* 2) Expériences d’enseignement → colonne 2, rangée 1 */
+  .cv-timelines .cv-timeline:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* 3) Études supérieures → colonne 2, rangée 2 (juste en dessous de l’enseignement) */
+  .cv-timelines .cv-timeline:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+/* === Timeline card layout: grid to avoid squeezing header === */
+.cv-timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;            /* header prend l'espace, logo à droite */
+  grid-template-areas:
+    "header logo"
+    "body   body";
+  align-items: start;
+  column-gap: 1.5rem;
+  row-gap: 0.6rem;
+  position: relative;                          /* pour le chevron absolu */
+  padding-bottom: 2.6rem;                      /* espace pour le chevron */
+}
+
+/* Le 1er bloc .cv-timeline-text = header (toujours visible) */
+.cv-timeline-item > .cv-timeline-text:first-of-type {
+  grid-area: header;
+  flex: initial;                               /* neutralise d'anciennes règles */
+  width: auto;
+}
+
+/* Logo à droite */
+.cv-timeline-item > .cv-logo {
+  grid-area: logo;
+  justify-self: end;
+  width: 60px;
+  height: 60px;
+}
+
+/* Corps repliable occupe toute la largeur (2 colonnes) */
+.cv-timeline-item > .cv-body {
+  grid-area: body;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .28s ease;
+}
+
+.cv-timeline-item.is-open > .cv-body {
+  max-height: 2000px;
+}
+
+/* Bouton circulaire centré en bas de la carte */
+.cv-toggle {
+  position: absolute;
+  bottom: 0.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 99, 235, 0.5);
+  background-color: #fff;
+  color: rgba(37, 99, 235, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  z-index: 5;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+}
+
+.cv-toggle:hover {
+  background-color: rgba(37, 99, 235, 0.08);
+  border-color: var(--accent);
+}
+
+/* Variables pour contrôler facilement la taille/position */
+:root {
+  --cv-toggle-size: 36px;     /* diamètre du bouton */
+  --cv-toggle-stroke: 2px;    /* épaisseur de bordure */
+  --cv-toggle-inside: calc(var(--cv-toggle-size) / 2); /* moitié du bouton */
+}
+
+/* La carte doit laisser déborder le bouton */
+.cv-timeline-item {
+  position: relative;
+  overflow: visible;                         /* autorise le débordement */
+  padding-bottom: calc(var(--cv-toggle-inside) + 0.1rem); /* place pour la moitié haute + un petit espace */
+}
+
+/* Bouton circulaire chevauchant le bas de la carte */
+.cv-toggle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;                                 /* accroché au bord bas de la carte */
+  transform: translate(-50%, 50%);           /* décale vers le bas = moitié hors de l'encart */
+  width: var(--cv-toggle-size);
+  height: var(--cv-toggle-size);
+  border-radius: 50%;
+  border: var(--cv-toggle-stroke) solid rgba(37, 99, 235, 0.5);
+  background-color: #fff;
+  color: rgba(37, 99, 235, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  z-index: 5;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
+}
+
+.cv-toggle:hover {
+  background-color: rgba(37, 99, 235, 0.08);
+  border-color: var(--accent);
+}
+
+/* Chevron SVG */
+.cv-toggle svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+
+/* Ouvert = chevron retourné */
+.cv-timeline-item.is-open .cv-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* Corps repliable (inchangé) */
+.cv-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.cv-timeline-item.is-open .cv-body {
+  max-height: 2000px;
+}
+
+/* Mobile : un chouïa plus d’air si besoin */
+@media (max-width: 720px) {
+  .cv-timeline-item {
+    padding-bottom: calc(var(--cv-toggle-inside) + 0.8rem);
+  }
+}
+
+
+/* Sécurité: ces éléments restent bien visibles et sur largeur normale */
+.cv-timeline-role,
+.cv-timeline-period,
+.cv-timeline-company { display: block; }
+
+/* Mobile: même grille, mais logo un peu plus petit et plus d'espace bas */
+@media (max-width: 720px) {
+  .cv-timeline-item { column-gap: 1rem; padding-bottom: calc(var(--cv-toggle-inside) + 0.8rem); }
+  .cv-timeline-item > .cv-logo { width: 52px; height: 52px; }
+}
+
+/* --- Patch langue pour les en-têtes de carte (titre / période) --- */
+
+/* Neutralise toute règle précédente qui forcerait l'affichage */
+.cv-timeline-role,
+.cv-timeline-period,
+.cv-timeline-company { display: unset; }
+
+/* Par défaut, cache les variantes localisées de ces champs */
+.cv-timeline-role[data-lang],
+.cv-timeline-period[data-lang],
+.cv-timeline-company[data-lang] { display: none !important; }
+
+/* Affiche UNIQUEMENT la langue active */
+body.lang-fr .cv-timeline-role[data-lang="fr"],
+body.lang-fr .cv-timeline-period[data-lang="fr"],
+body.lang-fr .cv-timeline-company[data-lang="fr"],
+body.lang-en .cv-timeline-role[data-lang="en"],
+body.lang-en .cv-timeline-period[data-lang="en"],
+body.lang-en .cv-timeline-company[data-lang="en"] { display: block !important; }
