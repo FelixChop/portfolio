@@ -710,6 +710,78 @@ ul.expertise {
 
 /* Chess */
 
+/* Chess — 2 colonnes desktop : (1) texte + Mazé | (2) plus belle victoire */
+@media (min-width: 960px) {
+  .chess-content {
+    display: grid !important;                 /* remplace le flex en colonne */
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* Colonne 1 : texte FIDE + carte GM Mazé */
+  .chess-content > .chess-text-block,
+  .chess-content > .chess-mentor {
+    grid-column: 1;
+  }
+  .chess-content > .chess-mentor {            /* supprime la marge ajoutée en mobile */
+    margin-top: 0;
+  }
+
+  /* Colonne 2 : ta plus belle victoire (viewer + texte) */
+  .chess-content > .chess-board {
+    grid-column: 2;
+    grid-row: 1 / span 2;                     /* occupe la hauteur des 2 blocs de gauche */
+    margin-top: 0;
+  }
+}
+
+/* === Chess: bloc performances (STD) === */
+.chess-ratings {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(20, 30, 55, 0.08);
+}
+
+.chess-ratings h3 {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+}
+
+.chart {
+  width: 100%;
+  height: 260px;           /* ajuste à ton goût */
+}
+
+.chart-note {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #6b7280;          /* gris doux */
+}
+
+/* Placement en 2 colonnes sur desktop : dans la colonne de gauche */
+@media (min-width: 960px) {
+  .chess-content {
+    display: grid !important;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  .chess-content > .chess-text-block,
+  .chess-content > .chess-mentor,
+  .chess-content > .chess-ratings {
+    grid-column: 1;
+  }
+  .chess-content > .chess-board {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    margin-top: 0;
+  }
+}
+
+
+
 .chess-content {
   display: flex;
   flex-direction: column;
@@ -747,6 +819,8 @@ ul.expertise {
   padding: 1.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  justify-content: center;
+  align-items: center;
 }
 
 #chess-game {

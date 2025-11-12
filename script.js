@@ -458,3 +458,151 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+/* === Chess: graphique parties lentes (STD) === */
+(function () {
+  const target = document.getElementById("std-rating-chart");
+  if (!target) return;
+
+  // Données: uniquement Standard (STD). Met en ordre chronologique (ancien -> récent).
+  const rows = [
+    { period: "2022-Nov", std: 1638, gms: 6 },
+    { period: "2022-Dec", std: null, gms: 0 },
+    { period: "2023-Jan", std: 1623, gms: 7 },
+    { period: "2023-Feb", std: 1613, gms: 2 },
+    { period: "2023-Mar", std: 1613, gms: 0 },
+    { period: "2023-Apr", std: 1616, gms: 1 },
+    { period: "2023-May", std: 1600, gms: 3 },
+    { period: "2023-Jun", std: 1691, gms: 6 },
+    { period: "2023-Jul", std: 1691, gms: 0 },
+    { period: "2023-Aug", std: 1691, gms: 0 },
+    { period: "2023-Sep", std: 1823, gms: 9 },
+    { period: "2023-Oct", std: 1823, gms: 0 },
+    { period: "2023-Nov", std: 1823, gms: 0 },
+    { period: "2023-Dec", std: 1834, gms: 1 },
+    { period: "2024-Jan", std: 1834, gms: 0 },
+    { period: "2024-Feb", std: 1858, gms: 2 },
+    { period: "2024-Mar", std: 1915, gms: 0 },
+    { period: "2024-Apr", std: 1915, gms: 0 },
+    { period: "2024-May", std: 1878, gms: 11 },
+    { period: "2024-Jun", std: 1866, gms: 7 },
+    { period: "2024-Jul", std: 1928, gms: 17 },
+    { period: "2024-Aug", std: 1972, gms: 11 },
+    { period: "2024-Sep", std: 1963, gms: 18 },
+    { period: "2024-Oct", std: 1963, gms: 0 },
+    { period: "2024-Nov", std: 1976, gms: 8 },
+    { period: "2024-Dec", std: 1943, gms: 3 },
+    { period: "2025-Jan", std: 1943, gms: 0 },
+    { period: "2025-Feb", std: 1939, gms: 1 },
+    { period: "2025-Mar", std: 1919, gms: 5 },
+    { period: "2025-Apr", std: 1924, gms: 1 },
+    { period: "2025-May", std: 1932, gms: 1 },
+    { period: "2025-Jun", std: 1932, gms: 0 },
+    { period: "2025-Jul", std: 1932, gms: 0 },
+    { period: "2025-Aug", std: 1932, gms: 0 },
+    { period: "2025-Sep", std: 1928, gms: 7 },
+    { period: "2025-Oct", std: 1928, gms: 0 },
+    { period: "2025-Nov", std: 1933, gms: 1 },
+  ];
+
+  // Garde les points où l'Elo est connu
+  const data = rows.filter(d => typeof d.std === "number");
+
+  // Dimensions
+  const W = target.clientWidth || 720;
+  const H = target.clientHeight || 260;
+  const M = { top: 16, right: 16, bottom: 30, left: 42 };
+  const innerW = W - M.left - M.right;
+  const innerH = H - M.top - M.bottom;
+
+  // Échelle X = index (ordre chronologique)
+  const x = (i) => (i / (data.length - 1)) * innerW;
+
+  // Échelle Y = Elo
+  const minY = Math.floor((Math.min(...data.map(d => d.std)) - 20) / 10) * 10;
+  const maxY = Math.ceil((Math.max(...data.map(d => d.std)) + 20) / 10) * 10;
+  const y = (val) => innerH - ((val - minY) / (maxY - minY)) * innerH;
+
+  // SVG
+  const svgns = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgns, "svg");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("width", "100%");
+  svg.setAttribute("height", "100%");
+
+  // Fond
+  const g = document.createElementNS(svgns, "g");
+  g.setAttribute("transform", `translate(${M.left},${M.top})`);
+  svg.appendChild(g);
+
+  // Grille horizontale + ticks Y
+  const ySteps = 5;
+  for (let i = 0; i <= ySteps; i++) {
+    const val = minY + (i * (maxY - minY)) / ySteps;
+    const yy = y(val);
+    const line = document.createElementNS(svgns, "line");
+    line.setAttribute("x1", 0);
+    line.setAttribute("y1", yy);
+    line.setAttribute("x2", innerW);
+    line.setAttribute("y2", yy);
+    line.setAttribute("stroke", "#E5E7EB"); // gris clair
+    line.setAttribute("stroke-width", "1");
+    g.appendChild(line);
+
+    const lbl = document.createElementNS(svgns, "text");
+    lbl.setAttribute("x", -8);
+    lbl.setAttribute("y", yy + 4);
+    lbl.setAttribute("text-anchor", "end");
+    lbl.setAttribute("font-size", "11");
+    lbl.setAttribute("fill", "#6B7280");
+    lbl.textContent = Math.round(val);
+    g.appendChild(lbl);
+  }
+
+  // Ligne
+  const path = document.createElementNS(svgns, "path");
+  const d = data
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${x(i)} ${y(p.std)}`)
+    .join(" ");
+  path.setAttribute("d", d);
+  path.setAttribute("fill", "none");
+  path.setAttribute("stroke", "#3B82F6"); // bleu (si tu veux un autre look, change ici)
+  path.setAttribute("stroke-width", "2.5");
+  g.appendChild(path);
+
+  // Points (pleins si ≥1 partie ce mois, sinon creux)
+  data.forEach((p, i) => {
+    const cx = x(i);
+    const cy = y(p.std);
+    const dot = document.createElementNS(svgns, "circle");
+    dot.setAttribute("cx", cx);
+    dot.setAttribute("cy", cy);
+    dot.setAttribute("r", p.gms > 0 ? 3.5 : 3);
+    dot.setAttribute("fill", p.gms > 0 ? "#1F2937" : "#fff");
+    dot.setAttribute("stroke", "#1F2937");
+    dot.setAttribute("stroke-width", "1.5");
+    dot.setAttribute("opacity", p.gms > 0 ? "1" : "0.8");
+    dot.appendChild(document.createTitleNode
+      ? document.createTitleNode(`${p.period}: ${p.std} (${p.gms} gms)`)
+      : document.createTextNode("")); // compat
+    g.appendChild(dot);
+  });
+
+  // Ticks X (1 sur ~3 pour lisibilité)
+  const step = Math.ceil(data.length / 6);
+  data.forEach((p, i) => {
+    if (i % step !== 0 && i !== data.length - 1) return;
+    const tx = x(i);
+    const lbl = document.createElementNS(svgns, "text");
+    lbl.setAttribute("x", tx);
+    lbl.setAttribute("y", innerH + 20);
+    lbl.setAttribute("text-anchor", "middle");
+    lbl.setAttribute("font-size", "11");
+    lbl.setAttribute("fill", "#6B7280");
+    lbl.textContent = p.period.replace("-"," ");
+    g.appendChild(lbl);
+  });
+
+  target.innerHTML = "";
+  target.appendChild(svg);
+})();
