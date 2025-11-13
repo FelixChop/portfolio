@@ -314,6 +314,24 @@ ul.expertise {
   color: var(--muted);
 }
 
+.identity-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.centered-title {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.identity-block .portrait img {
+  margin: 0 auto;
+}
+
+
 .hero h1 {
   margin: 0.75rem 0;
   font-size: clamp(2.4rem, 1.6rem + 1.8vw, 3.2rem);
@@ -346,13 +364,39 @@ ul.expertise {
   align-items: center;
 }
 
+.hero-title {
+  margin: 0 0 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  line-height: 1.15;
+}
+
+.hero-title .name {
+  font-size: clamp(2.6rem, 1.8rem + 2vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.hero-title .role {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  opacity: 0.85;
+}
+
+
 .portrait img {
   width: clamp(260px, 32vw, 380px);
-  border-radius: 28px;
+  border-radius: 16px;
   box-shadow: var(--shadow);
-  /* width: 250px; taille par défaut sur grands écrans */
   /* border-radius: 12px; */
   transition: width 0.3s ease;
+  background: #f2f2f2;
+  padding: 0px;
+  display: inline-block;
 }
 
 .hero-card {
@@ -670,7 +714,15 @@ ul.expertise {
   box-shadow: var(--shadow);
 }
 
+@media (max-width: 640px) {
+  .article-card {
+    grid-template-columns: 1fr;
+  }
+}
+
 .article-image {
+  width: 100%;
+  height: 100%;
   position: relative;
   border-radius: calc(var(--radius) - 6px);
   overflow: hidden;
@@ -882,7 +934,7 @@ ul.expertise {
   }
 
   .portrait img{
-    width: 70%;
+    width: 80%;
   }
 }
 
@@ -1062,7 +1114,7 @@ ul.expertise {
   }
 
   .portrait img{
-    width: 70%;
+    width: 95%;
   }
 }
 
@@ -1123,52 +1175,6 @@ ul.expertise {
   margin-bottom: 0.5rem;
 }
 
-/* Timeline: ligne et ancrage stables */
-.cv-timeline-list {
-  --timeline-x: 18px;               /* distance depuis le bord gauche du bloc */
-  --dot-size: 14px;                 /* diamètre du cercle */
-  --dot-ring: 3px;                  /* bordure du cercle */
-
-  position: relative;
-  padding-left: calc(var(--timeline-x) + var(--dot-size) + 14px); /* espace pour ligne+dot */
-  border-left: none;                /* on gère la ligne avec ::before */
-}
-
-.cv-timeline-list::before {
-  content: "";
-  position: absolute;
-  left: var(--timeline-x);
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(37, 99, 235, 0.25);
-}
-
-/* Chaque entrée reste relative, mais le dot est recalé avec un offset NEGATIF
-   vers la gauche, donc il ne bouge plus même si on décale la card */
-.cv-timeline-item {
-  position: relative;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-  padding: 1.5rem;
-  /* IMPORTANT: pas de margin-left ici, on laisse la liste gérer l'espace */
-}
-
-.cv-timeline-item::before {
-  content: "";
-  position: absolute;
-  top: 1.75rem; /* ajuste si besoin pour centrer verticalement */
-  left: calc(
-    -1 * var(--timeline-x) - var(--dot-size) / 2
-  ); /* ancre sur l’axe de la ligne */
-  width: var(--dot-size);
-  height: var(--dot-size);
-  background: #fff;
-  border: var(--dot-ring) solid var(--accent);
-  border-radius: 50%;
-  z-index: 2;
-}
 
 /* Logo déjà à droite : on garde. Juste un petit garde-fou mobile */
 @media (max-width: 720px) {
@@ -1180,48 +1186,7 @@ ul.expertise {
 /* Carte d'expérience */
 .cv-timeline-item {
   position: relative;
-  margin-bottom: 1.6rem;
-  padding: 1.2rem 6.2rem 1.1rem 2.4rem; /* padding-left = place pour le cercle */
-  background: var(--card);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-}
-
-/* Cercle sur la barre (plus gros) */
-.cv-timeline-item::before {
-  content: "";
-  position: absolute;
-  top: 1.4rem;
-  left: -0.7rem;             /* centre le cercle sur la barre (barre à 0, cercle de 1.4rem ⇒ -0.7rem) */
-  width: 1.4rem;
-  height: 1.4rem;
-  border-radius: 50%;
-  border: 3px solid #111827;
-  background: #f9fafb;
-}
-
-/* Barre verticale continue à gauche des cartes */
-.cv-timeline-list {
-  position: relative;
-  padding-left: 2.6rem;      /* espace pour la barre + cercle */
-}
-
-.cv-timeline-list::before {
-  content: "";
-  position: absolute;
-  left: 0;                   /* barre collée au bord gauche du container */
-  top: 0.6rem;
-  bottom: 0.5rem;
-  width: 2px;
-  background: rgba(37, 99, 235, 0.35);
-  border-radius: 2px;
-}
-
-/* Titre de la colonne ("Expériences produit & data" etc.) */
-.cv-timeline h3 {
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-  font-size: 1.15rem;
+  margin-bottom: 1.6rem; /* espace entre les cartes */
 }
 
 /* Carte : layout interne (texte + logo à droite) */
@@ -1231,7 +1196,7 @@ ul.expertise {
   justify-content: space-between;
   align-items: flex-start;
   gap: 1.5rem;
-  padding: 1.5rem;
+  padding: 1rem;
   background: white;
   border-radius: 18px;
   box-shadow: var(--shadow);
@@ -1307,7 +1272,7 @@ ul.expertise {
 .cv-timeline-list {
   --timeline-x: 18px;             /* position of the vertical line from the list's left edge */
   --dot-size: 18px;               /* diameter of the dot */
-  --gutter: 14px;                 /* horizontal gap between the dot and the card */
+  --gutter: 18px;                 /* horizontal gap between the dot and the card */
   position: relative;
   padding-left: calc(var(--timeline-x) + (var(--dot-size) / 2) + var(--gutter));
 }
@@ -1319,7 +1284,7 @@ ul.expertise {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: rgba(37, 99, 235, 0.3);
+  background: rgba(200, 200, 200, 0.5);
 }
 
 .cv-timeline-item::before {
@@ -1331,7 +1296,7 @@ ul.expertise {
   height: var(--dot-size);
   border-radius: 50%;
   background: #fff;
-  border: 3px solid var(--accent);
+  border: 2px solid var(--accent);
   box-shadow: 0 0 0 3px var(--bg-alt);
   z-index: 2;
 }
@@ -1415,32 +1380,6 @@ ul.expertise {
   max-height: 2000px;
 }
 
-/* Bouton circulaire centré en bas de la carte */
-.cv-toggle {
-  position: absolute;
-  bottom: 0.9rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid rgba(37, 99, 235, 0.5);
-  background-color: #fff;
-  color: rgba(37, 99, 235, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
-  z-index: 5;
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.15);
-}
-
-.cv-toggle:hover {
-  background-color: rgba(37, 99, 235, 0.08);
-  border-color: var(--accent);
-}
-
 /* Variables pour contrôler facilement la taille/position */
 :root {
   --cv-toggle-size: 36px;     /* diamètre du bouton */
@@ -1466,7 +1405,7 @@ ul.expertise {
   border-radius: 50%;
   border: var(--cv-toggle-stroke) solid rgba(37, 99, 235, 0.5);
   background-color: #fff;
-  color: rgba(37, 99, 235, 1);
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1586,4 +1525,30 @@ body.lang-en .cv-timeline-company[data-lang="en"] { display: block !important; }
 
 .flip-card-back {
   transform: rotateY(180deg);
+}
+@media (max-width: 640px) {
+  .environment-grid {
+    grid-template-columns: 1fr;   /* 1 colonne fluide */
+  }
+
+  .flip-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;        /* garde un format paysage sans fixer en px */
+    margin: 1.5rem auto;
+  }
+
+  .flip-card-inner,
+  .flip-card-front,
+  .flip-card-back {
+    height: 100%;
+  }
+
+  .flip-card-front img,
+  .flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
