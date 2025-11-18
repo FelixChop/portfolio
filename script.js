@@ -5,6 +5,8 @@
   const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
   const langToggle = document.querySelector(".lang-toggle");
   const langButtons = langToggle ? Array.from(langToggle.querySelectorAll(".lang-option")) : [];
+  const scrollProgressBar = document.querySelector(".scroll-progress__bar");
+  const mobileMenuMediaQuery = window.matchMedia("(max-width: 840px)");
   const yearSpan = document.getElementById("year");
   const revealElements = document.querySelectorAll(".reveal");
   let currentLang = "fr";
@@ -52,6 +54,35 @@
       }
     });
   });
+
+  // Scroll progress indicator for mobile (when nav is collapsed)
+  function updateScrollProgress() {
+    if (!scrollProgressBar) {
+      return;
+    }
+    const scrollableHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+    const clampedProgress = Math.max(0, Math.min(100, progress));
+
+    if (mobileMenuMediaQuery.matches) {
+      scrollProgressBar.style.width = `${clampedProgress}%`;
+    } else {
+      scrollProgressBar.style.width = "0%";
+    }
+  }
+
+  const watchMediaQuery = () => updateScrollProgress();
+
+  if (mobileMenuMediaQuery.addEventListener) {
+    mobileMenuMediaQuery.addEventListener("change", watchMediaQuery);
+  } else if (mobileMenuMediaQuery.addListener) {
+    mobileMenuMediaQuery.addListener(watchMediaQuery);
+  }
+
+  window.addEventListener("scroll", updateScrollProgress);
+  window.addEventListener("resize", updateScrollProgress);
+  updateScrollProgress();
 
   // Scroll reveal animation
   const observer = new IntersectionObserver(
