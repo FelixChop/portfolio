@@ -1447,6 +1447,32 @@ ul.expertise {
   border-color: var(--accent);
 }
 
+@keyframes cvToggleHintPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.25);
+    background-color: #fff;
+  }
+  50% {
+    box-shadow: 0 0 12px 4px rgba(37, 99, 235, 0.35);
+    background-color: rgba(37, 99, 235, 0.08);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.25);
+    background-color: #fff;
+  }
+}
+
+.cv-toggle--hint {
+  border-color: var(--accent);
+  animation: cvToggleHintPulse 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-toggle--hint {
+    animation: none;
+  }
+}
+
 /* Chevron SVG */
 .cv-toggle svg {
   width: 18px;
