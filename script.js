@@ -352,6 +352,34 @@ function renderChessViewer() {
 // === CV Timeline collapsible items — bouton circulaire centré en bas ===
 document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.cv-timeline-item');
+  const toggles = [];
+  let hasClickedChevron = false;
+  let hintActive = false;
+
+  const activateChevronHint = () => {
+    if (hasClickedChevron || hintActive || !toggles.length) return;
+    toggles.forEach(btn => btn.classList.add('cv-toggle--hint'));
+    hintActive = true;
+  };
+
+  const deactivateChevronHint = () => {
+    if (!hintActive) return;
+    toggles.forEach(btn => btn.classList.remove('cv-toggle--hint'));
+    hintActive = false;
+  };
+
+  const onScrollHint = () => {
+    if (!hasClickedChevron) {
+      activateChevronHint();
+    }
+  };
+
+  const markChevronInteracted = () => {
+    if (hasClickedChevron) return;
+    hasClickedChevron = true;
+    deactivateChevronHint();
+    window.removeEventListener('scroll', onScrollHint);
+  };
 
   items.forEach((item, idx) => {
     // Le premier .cv-timeline-text contient le header (role, dates, etc.)
@@ -402,7 +430,10 @@ document.addEventListener('DOMContentLoaded', () => {
     item.classList.remove('is-open');
 
     // Toggle ouverture/fermeture
+    toggles.push(btn);
+
     btn.addEventListener('click', () => {
+      markChevronInteracted();
       const open = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!open));
       item.classList.toggle('is-open', !open);
@@ -416,6 +447,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  if (toggles.length) {
+    window.addEventListener('scroll', onScrollHint, { passive: true });
+  }
 });
 
 // === Flip card : scroll + clic (clic prioritaire) ===
