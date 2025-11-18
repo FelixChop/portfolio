@@ -176,6 +176,7 @@ ul.expertise {
   background: rgba(243, 244, 246, 0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  overflow: visible;
 }
 
 .header-inner {
@@ -289,6 +290,28 @@ ul.expertise {
 
 .nav-toggle.nav-open span:last-child {
   transform: translateY(-5px) rotate(-45deg);
+}
+
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.15);
+  overflow: hidden;
+  pointer-events: none;
+  display: none;
+}
+
+.scroll-progress__bar {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left center;
+  transition: width 0.15s ease;
 }
 
 /* Hero */
@@ -1142,6 +1165,10 @@ ul.expertise {
 
   .portrait img{
     width: 95%;
+  }
+
+  .scroll-progress {
+    display: block;
   }
 }
 
